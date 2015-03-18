@@ -31,7 +31,7 @@ var fontsize="font-size:700%";
 function initialise() {
 		document.getElementById("playbutton").innerHTML="<b>Play</b> (<font color="+red+">$"+costtoplay+"</font>)<br><br>Wallet: $"+wallet;
 		document.getElementById("rollbutton").innerHTML="<font style="+fontsize+">&#9786;</font>";
-		document.getElementById("cashbutton").innerHTML="<b>Cash Tokens</b> <br><br>Tokens: 0 (= $<font color="+green+">"+tokens*tokenvalue+"</font>)";
+		document.getElementById("cashbutton").innerHTML="<b>Cash Tokens</b><br><br>Tokens: 0 (= $<font color="+green+">"+tokens*tokenvalue+"</font>)";
 	}
 	
 
@@ -49,7 +49,7 @@ function play() {
 function roll() {
 	if(state==1){
 		tokens++;
-		document.getElementById("cashbutton").innerHTML="<b>Cash Tokens</b><br><br>Tokens: "+tokens+" (= $<font color="+green+">"+tokens*tokenvalue+"</font>)";
+		document.getElementById("cashbutton").innerHTML="<b>Cash Tokens</b><br><br>Tokens: 0 (= $<font color="+green+">"+tokens*tokenvalue+"</font>)";
 		rollvalue=Math.random();
 		document.getElementById("rollbutton").innerHTML="<font color="+green+">"+(Math.floor(total*100))/100+"</font> + "+(Math.floor(rollvalue*100))/100+" = <font color="+green+">"+(Math.floor((rollvalue+total)*100))/100+"</font><br><br><b>Safe!</b>";
 		if((rollvalue+total)>1){
@@ -66,7 +66,7 @@ function roll() {
 function cash() {
 	wallet+=(tokenvalue*tokens);
 	tokens=0;
-	document.getElementById("cashbutton").innerHTML="<b>Cash Tokens</b><br><br>Tokens: "+tokens+" (= $<font color="+green+">"+tokens*tokenvalue+"</font>)";
+	document.getElementById("cashbutton").innerHTML="<b>Cash Tokens</b><br><br>Tokens: 0 (= $<font color="+green+">"+tokens*tokenvalue+"</font>)";
 	if(state==0){document.getElementById("playbutton").innerHTML="<b>Play Again</b> (<font color="+red+">$20</font>)<br><br>Wallet: $"+wallet;}
 	if(state==1){document.getElementById("playbutton").innerHTML="<b>Go! &#8594;</b><br><br>Wallet: $"+wallet}
 }
