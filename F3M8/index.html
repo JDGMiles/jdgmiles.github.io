@@ -8,7 +8,7 @@ var tokenvalue=7;
 var costtoplay=20;
 var rollvalue=0;
 var total=0;
-var state=2;
+var state=0;
 var red="red";
 var green="green";
 var fontsize="font-size:300%";
@@ -37,7 +37,7 @@ function initialise() {
 	
 
 function play() {
-	if(state==2){state=0;}
+//	if(state==2){state=0;}
 	if(state==0 && wallet>(costtoplay-1)){
 		wallet-=costtoplay;
 		total=0;
