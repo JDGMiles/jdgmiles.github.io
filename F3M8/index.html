@@ -1,7 +1,6 @@
 <!DOCTYPE html><html>
 
-<head>
-<title>Slot Machine</title>
+<head><title>Slot Machine</title>
 <script type="text/javascript">
 var wallet=60;
 var tokens=0;
@@ -16,15 +15,17 @@ var fontsize="font-size:700%";
 </script>
 </head>
 
-<body onload="initialise()"><center>
+<body onload="initialise()"><center><table class="box" border="2" cellpadding="6">
 
-<table class="box" border="2" cellpadding="6">
-<tr style="font-family:helvetica; text-align:center">
-<td><button style="font-size:200%; width:300px; height:300px" onclick="play()"><a id="playbutton"></button></td>
-<td><button style="font-size:200%; width:300px; height:300px" onclick="roll()"><a id="rollbutton"></button></td>
-<td><button style="font-size:200%; width:300px; height:300px" onclick="cash()"><a id="cashbutton"></button></td>
+<tr>
+<td><button style="font-familt:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="play()"><a id="playbutton"></button></td>
+<td><button style="font-familt:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="roll()"><a id="rollbutton"></button></td>
+<td><button style="font-familt:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="cash()"><a id="cashbutton"></button></td>
 </tr>
-</table>
+
+</table></center></body>
+	
+</html>
 
 <script type="text/javascript">
 
@@ -73,5 +74,3 @@ function cash() {
 
 
 </script>
-
-</center></body></html>
