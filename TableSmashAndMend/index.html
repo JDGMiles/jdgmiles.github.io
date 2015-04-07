@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Table Smash and Mend</title>
+
+<script type="text/javascript">
+
+var field={width:700, height:500};
+
+var border=50;
+
+var table={x:0, y:0, width:0, height:0, color:"navy"};
+table.width=field.width-(2*border);
+table.height=field.height-(2*border);
+table.x=border;
+table.y=border;
+
+var hole={x:0, y:0, radius:0};
+
+var cut={x:0, y:0}
+
+</script>
+
+</head>
+
+<body style="background-color:#000000"><center>
+
+<canvas onclick="smash()" id="canvas"></canvas>
+
+</center></body>
+
+</html>
+
+<script type="text/javascript">
+
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d");
+
+canvas.width = field.width;
+canvas.height = field.height;
+
+ctx.fillStyle = "white";
+ctx.fillRect(0, 0, field.width, field.height);
+
+ctx.fillStyle = table.color;
+ctx.fillRect(table.x, table.y, table.width, table.height);
+
+function smash(){
+	hole.radius=Math.floor((Math.random() * Math.min(table.width, table.height) / 2) + 1)-5;
+	hole.x=(Math.random() * (table.width-(2*hole.radius)) + hole.radius + border);
+	hole.y=(Math.random() * (table.height-(2*hole.radius)) + hole.radius + border);
+
+	if(hole.x>border+table.width/2){cut.x=hole.x-table.width/2;}else{cut.x=hole.x+table.width/2;}
+	if(hole.y>border+table.height/2){cut.y=hole.y-table.height/2;}else{cut.y=hole.y+table.height/2;}
+
+	ctx.fillStyle = table.color;
+	ctx.fillRect(table.x, table.y, table.width, table.height);
+
+	ctx.beginPath();
+	ctx.arc(hole.x, hole.y, hole.radius, 0, 2 * Math.PI, false);
+	ctx.fillStyle = "white";
+	ctx.fill();
+
+	ctx.beginPath();
+	ctx.arc(cut.x, cut.y, 5, 0, 2 * Math.PI, false);
+	ctx.fillStyle = "red";
+	ctx.fill();
+	}
+
+// function trim(){
+	
+
+</script>
+
