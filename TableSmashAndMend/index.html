@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<title>Table Smash and Mend</title>
+<!DOCTYPE html><html><head><title>Table Smash and Mend</title>
 
 <script type="text/javascript">
 
@@ -20,34 +16,20 @@ var hole={x:0, y:0, radius:0};
 
 var cut={x:0, y:0}
 
-</script>
+</script></head>
 
-</head>
-
-<body style="background-color:#000000"><center>
-
-<canvas onclick="smash()" id="canvas"></canvas>
-
-</center></body>
-
-</html>
+<body style="background-color:#000000"><center><canvas onclick="smash()" id="canvas"></canvas></center></body></html>
 
 <script type="text/javascript">
 
-var canvas = document.getElementById("canvas"),
-    ctx = canvas.getContext("2d");
+var canvas = document.getElementById("canvas"), ctx = canvas.getContext("2d"); canvas.width = field.width; canvas.height = field.height;
 
-canvas.width = field.width;
-canvas.height = field.height;
+ctx.fillStyle = "white"; ctx.fillRect(0, 0, field.width, field.height);
 
-ctx.fillStyle = "white";
-ctx.fillRect(0, 0, field.width, field.height);
-
-ctx.fillStyle = table.color;
-ctx.fillRect(table.x, table.y, table.width, table.height);
+ctx.fillStyle = table.color; ctx.fillRect(table.x, table.y, table.width, table.height);
 
 function smash(){
-	hole.radius=Math.floor((Math.random() * Math.min(table.width, table.height) / 2) + 1)-5;
+	hole.radius=Math.floor((Math.random() * Math.min(table.width, table.height) / 2);
 	hole.x=(Math.random() * (table.width-(2*hole.radius)) + hole.radius + border);
 	hole.y=(Math.random() * (table.height-(2*hole.radius)) + hole.radius + border);
 
