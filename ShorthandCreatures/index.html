@@ -1,81 +1,77 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html><head><title>Shorthand Creatures</title>
 
-<head>
-<title>Shorthand Creatures</title>
 <style type="text/css">
+
 .grow img {
 	transition: 0.25s ease;
 	height: 145px;
 	width: 100px;
 	}
 
-.grow img:hover {
-	-webkit-transform: scale(2.3);
-	-ms-transform: scale(2.3);
-	transform: scale(2.3);
-	transition: 0.25s ease;
-	}
+.grow img:hover { 
+	-webkit-transform: scale(2.3); 
+	-ms-transform: scale(2.3); 
+	transform: scale(2.3); 
+	transition: 0.25s ease; 
+	} 
 
-@font-face {
-	font-family: Beleren;
-	src: url(beleren-bold-webfont.woff);
-}
+@font-face {font-family: Beleren; src: url(beleren-bold-webfont.woff);}
 
-p {
-	font-family:Beleren, Georgia;
-	}
-</style>
-</head>
+p {font-family:Beleren, Georgia;}
 
-<body style="background-color:#000000"><center><table style="padding: 100px 60px 0px 65px">
+</style></head>
+
+<body style="background-color:#000000"><center><table style="padding: 100px 60px 0px 65px"> 
 
 <td style="width:620px; text-align:center"><div class="grow">
-<img onmouseover="d16()" onmouseout="revert()" src="http://i.imgur.com/wYsEKNP.png">
-<img onmouseover="d4()" onmouseout="revert()" src="http://i.imgur.com/14l03Cn.png">
-<img onmouseover="d7()" onmouseout="revert()" src="Horned Turtle.gif">
-<img onmouseover="d5()" onmouseout="revert()" src="LionsAndEliteVanguard.gif">
-<img onmouseover="d17()" onmouseout="revert()" src="Jackal Pup.gif">
-<img onmouseover="d1()" onmouseout="revert()" src="http://i.imgur.com/CuLG9dq.png">
-<img onmouseover="d10()" onmouseout="revert()" src="http://i.imgur.com/YNB9rJv.png">
-<img onmouseover="d0()" onmouseout="revert()" src="Grizzly and Runeclaw Bears.gif">
-<img onmouseover="d2()" onmouseout="revert()" src="http://i.imgur.com/pe8nB7m.png">
+
+<img onmouseover="d0()" onmouseout="revert()" src="http://i.imgur.com/wYsEKNP.png">
+<img onmouseover="d1()" onmouseout="revert()" src="http://i.imgur.com/14l03Cn.png">
+<img onmouseover="d2()" onmouseout="revert()" src="Horned Turtle.gif">
+<img onmouseover="d3()" onmouseout="revert()" src="LionsAndEliteVanguard.gif">
+<img onmouseover="d4()" onmouseout="revert()" src="Jackal Pup.gif">
+<img onmouseover="d5()" onmouseout="revert()" src="http://i.imgur.com/CuLG9dq.png">
+<img onmouseover="d6()" onmouseout="revert()" src="Grizzly and Runeclaw Bears.gif">
+<img onmouseover="d7()" onmouseout="revert()" src="http://i.imgur.com/pe8nB7m.png">
 <img onmouseover="d8()" onmouseout="revert()" src="Wind Drake.gif">
-<img onmouseover="d12()" onmouseout="revert()" src="Minotaur.gif">
-<img onmouseover="d6()" onmouseout="revert()" src="Elephant.gif">
-<img onmouseover="d18()" onmouseout="revert()" src="http://i.imgur.com/ESHraIg.png">
-<img onmouseover="d3()" onmouseout="revert()" src="Hill Giant.gif">
-<img onmouseover="d11()" onmouseout="revert()" src="Air Elemental.gif">
-<img onmouseover="d14()" onmouseout="revert()" src="Craw Wurm.gif">
-<img onmouseover="d9()" onmouseout="revert()" src="Mana Dorks.gif">
-<img onmouseover="d13()" onmouseout="revert()" src="Tim.gif">
+<img onmouseover="d9()" onmouseout="revert()" src="Minotaur.gif">
+<img onmouseover="d10()" onmouseout="revert()" src="Giant Spider.gif">
+<img onmouseover="d11()" onmouseout="revert()" src="Elephant.gif">
+<img onmouseover="d12()" onmouseout="revert()" src="http://i.imgur.com/ESHraIg.png">
+<img onmouseover="d13()" onmouseout="revert()" src="Hill Giant.gif">
+<img onmouseover="d14()" onmouseout="revert()" src="Air Elemental.gif">
+<img onmouseover="d15()" onmouseout="revert()" src="Craw Wurm.gif">
+<img onmouseover="d16()" onmouseout="revert()" src="Mana Dorks.gif">
+<img onmouseover="d17()" onmouseout="revert()" src="Tim.gif">
+
 </div></td>
 
-<td id="description" style="background-color:black; color:white; width:350px; padding: 0px 0px 0px 75px; text-align:center;"><p style="font-size:290%">Hover over a card for its description</p></td>
+<td id="description" style="background-color:black; color:white; width:350px; padding: 0px 0px 0px 75px; text-align:center;"><p style="font-size:290%">Hover over a card for its description</p></td> 
 
 </table></center></body>
 
-</html>
+</html> 
 
 <script type="text/javascript">
-function revert() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">Hover over a card for its description</p>";}
-function d0() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/2 for 2 mana is a &#8220;Bear&#8221;</p>";}
-function d1() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/1 for 2 mana is a &#8220;Piker&#8221;</p>";}
-function d2() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/2 for 3 mana is a &#8220;Gray Ogre&#8221;</p>";}
-function d3() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 3/3 for 4 mana is a &#8220;Hill Giant&#8221;</p>";}
-function d4() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/2 is a &#8220;Squire&#8221;</p>";}
-function d5() {document.getElementById("description").innerHTML="<p style=\"font-size:240%\">A 2/1 for 1 white is a <br>&#8220;Savannah Lions&#8221; or to newer players an &#8220;Elite Vanguard&#8221;</p>";}
-function d6() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 3/3 is an &#8220;Elephant&#8221;</p>";}
-function d7() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/4 is a &#8220;Horned Turtle&#8221;</p>";}
-function d8() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/2 flier for 3 mana is a <br>&#8220;Wind Drake&#8221;</p>";}
-function d9() {document.getElementById("description").innerHTML="<p style=\"font-size:280%\">A creature that can <i>produce</i> mana is a <br>&#8220;Mana Dork&#8221;</p>";}
-function d10() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/1 flier for 2 mana is a <br>&#8220;Welkin Tern&#8221;</p>";}
-function d11() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 4/4 flier for 5 mana is an <br>&#8220;Air Elemental&#8221;</p>";}
-function d12() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/3 is a <br>&#8220;Minotaur&#8221;</p>";}
-function d13() {document.getElementById("description").innerHTML="<p style=\"font-size:210%\">A creature that can tap to do 1 damage is a &#8220;Tim&#8221;, after Prodigal Sorcerer, who got that nickname from <a style=\"color:white; text-decoration:none\" href=\"https://youtu.be/JTbrIo1p-So\">the character in <i>Monty Python and the Holy Grail</i></a>. To do 1 damage like this is to &#8220;ping&#8221;.</p>";}
-function d14() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 6/4 is a <br>&#8220;Craw Wurm&#8221;</p>";}
-function d15() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 6/6 is a <br>&#8220;Vizzerdrix&#8221;</p>";}
-function d16() {document.getElementById("description").innerHTML="<p style=\"font-size:190%\">Older players of <i>Magic: The Gathering</i> often use the names of well-known creatures to describe another creature with the same or similar attributes. This page collects those that I have heard people use.</p>";}
-function d17() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/1 for 1 red is a &#8220;Jackal Pup&#8221;</p>";}
-function d18() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 3/3 for 3 mana is a <br>&#8220;Gnarled Mass&#8221;</p>";}
+
+function revert() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">Hover over a card for its description</p>";} 
+function d0() {document.getElementById("description").innerHTML="<p style=\"font-size:190%\">Older players of <i>Magic: The Gathering</i> often use the names of well-known creatures to describe another creature with the same or similar attributes. This page collects those that I have heard people use.</p>";} 
+function d1() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/2 is a &#8220;Squire&#8221;</p>";} 
+function d2() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/4 is a &#8220;Horned Turtle&#8221;</p>";} 
+function d3() {document.getElementById("description").innerHTML="<p style=\"font-size:240%\">A 2/1 for 1 white is a <br>&#8220;Savannah Lions&#8221; or to newer players an &#8220;Elite Vanguard&#8221;</p>";} 
+function d4() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/1 for 1 red is a &#8220;Jackal Pup&#8221;</p>";}
+function d5() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/1 for 2 mana is a &#8220;Piker&#8221;</p>";}
+function d6() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/2 for 2 mana is a &#8220;Bear&#8221;</p>";}
+function d7() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/2 for 3 mana is a &#8220;Gray Ogre&#8221;</p>";}
+function d8() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/2 flier for 3 mana is a <br>&#8220;Mana Drake&#8221;</p>";}
+function d9() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/3 is a <br>&#8220;Minotaur&#8221;</p>";}
+function d10() {document.getElementById("description").innerHTML="<p style=\"font-size:205%\">A 2/4 body is a &#8220;Giant Spider&#8221;, the most reprinted creature card in the game. If it doesn't have reach it's a &#8220;worse Giant Spider&#8221;.</p>";}
+function d11() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 3/3 is an &#8220;Elephant&#8221;</p>";}
+function d12() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 3/3 for 3 mana is a <br>&#8220;Gnarled Mass&#8221;</p>";}
+function d13() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 3/3 for 4 mana is a &#8220;Hill Giant&#8221;</p>";}
+function d14() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 4/4 flier for 5 mana is an <br>&#8220;Air Elemental&#8221;</p>";}
+function d15() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 6/4 is a <br>&#8220;Craw Wurm&#8221;</p>";}
+function d16() {document.getElementById("description").innerHTML="<p style=\"font-size:280%\">A creature that can <i>produce</i> mana is a <br>&#8220;Mana Dork&#8221;</p>";}
+function d17() {document.getElementById("description").innerHTML="<p style=\"font-size:210%\">A creature that can tap to do 1 damage is a &#8220;Tim&#8221;, after Prodigal Sorcerer, who got that nickname from <a style=\"color:white; text-decoration:none\" href=\"https://youtu.be/JTbrIo1p-So\">the character in <i>Monty Python and the Holy Grail</i></a>. To do 1 damage like this is to &#8220;ping&#8221;.</p>";}
+
 </script>
