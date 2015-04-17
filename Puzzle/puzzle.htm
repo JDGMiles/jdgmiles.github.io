@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head><title>薔薇の周りの花びら</title>
+<link rel="icon" href="/PuzzleFavicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="/PuzzleFavicon.ico" type="image/x-icon">
+<script type="text/javascript">
+var d=new Array(); for (var i=0;i<6;i++) {d[i] = i+1};
+var p=new Array(); p[0]="&#9856", p[1]="&#9857", p[2]="&#9858", p[3]="&#9859", p[4]="&#9860", p[5]="&#9861";
+</script></head>
+
+<body><center><table border="0" cellpadding="-1"><tr>
+
+<td colspan="1" style="font-size:1000%">
+<table border="10">
+<tr>
+<td colspan="2" style="text-align:center; background-color:black; height:230px"><button style="font-size:20%; background-color:red; color:white" onclick="r()">サイコロを<br>振る</button></td>
+<td style="background-color:red; color:white" id="u">&#9856</td>
+<td style="background-color:black; color:white" id="c">&#9857</td>
+</tr>
+<tr>
+<td style="background-color:black; color:white; height:230px" id="h">&#9858</td>
+<td style="background-color:red; color:white" id="e">&#9859</td>
+<td style="background-color:black; color:white" id="a">&#9860</td>
+<td style="background-color:red; color:white" id="t">&#9861</td>
+</tr>
+</table>
+</td>
+
+<td colspan="1" style="font-size:100%"><table cellpadding="1">
+
+<tr><td><table border="10" cellpadding="6" style="background-color:lightgray">
+<tr><td colspan="7" style="font-size:150%; text-align:left; width:315px; height:70px">薔薇の周りの花びら。<br>＊これが重要なヒントです。</td></tr>
+<tr><td colspan="7" style="font-size:150%; text-align:left; height:35px">番号は必ず偶数です。</td></tr>
+<tr><td colspan="7" style="font-size:150%; text-align:left; height:35px">番号を当てて下さい。</td></tr>
+</table></td></tr>
+
+<tr><td><table border="10"><tr>
+<td style="text-align:center; width:100px; background-color:darkred; height:250px"><button style="font-size:200%; background-color:pink; color:darkred" onclick="s()">答え</button></td>
+<td colspan="6" style="font-size:1000%; text-align:center; color:pink; background-color:darkred; width:219px" id="s"><t style=font-size:120%>&#10048</t></td>
+</tr></table>
+
+</td></tr></table></td></tr>
+
+</table>
+
+<script type="text/javascript">
+function r() {
+	for (var i=0;i<6;i++) {d[i]=Math.round(Math.random()*6)%6+1};
+	for (var i=0;i<6;i++) {
+		if (d[0]==i+1) {document.getElementById("u").innerHTML=p[i]};
+		if (d[1]==i+1) {document.getElementById("c").innerHTML=p[i]};
+		if (d[2]==i+1) {document.getElementById("h").innerHTML=p[i]};
+		if (d[3]==i+1) {document.getElementById("e").innerHTML=p[i]};
+		if (d[4]==i+1) {document.getElementById("a").innerHTML=p[i]};
+		if (d[5]==i+1) {document.getElementById("t").innerHTML=p[i]};
+	};
+	document.getElementById("s").innerHTML="<t style=font-size:120%>&#10048</t>";
+}
+
+function s() {
+	var s=0;
+	for (var i=0;i<6;i++) {s=s+((d[i]-1)*(d[i]%2))}
+	document.getElementById("s").innerHTML=s;
+}
+</script>
+
+</center></body></html>
