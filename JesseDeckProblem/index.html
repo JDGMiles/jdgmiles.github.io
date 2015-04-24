@@ -1,33 +1,23 @@
+<!DOCTYPE html><html><head>
 
-<!DOCTYPE html><html>
-
-<head>
 <title>Jesse Deck Problem</title>
-<link rel="icon" href="http://jdgmiles.github.io/JesseDeckProblem/JesseDeckProblem.ico" type="image/x-icon"> <link rel="shortcut icon" href="http://jdgmiles.github.io/JesseDeckProblem/JesseDeckProblem.ico" type="image/x-icon">
+
+<link rel="shortcut icon" href="http://jdgmiles.github.io/JesseDeckProblem/JesseDeckProblem.ico" type="image/x-icon">
+
 <script type="text/javascript">
-var inputstring;
+
 var decks = new Array();
-var numberofdecks;
-var card1;
-var card2;
-var card3;
-var card4;
-var card5;
-var card6;
-var card7;
-var card8;
-var seencards;
-var curious;
 var cardmatchcount = new Array();
-var deckmatchcount;
-var fearedmatchcount;
-var percent;
+var inputstring, numberofdecks, card1, card2, card3, card4, card5, card6, card7, card8, seencards, curious, deckmatchcount, fearedmatchcount, percent;
+
 </script>
+
 </head>
 
-<body style="background-color:black"><center>
-<table style="background-color:white;" border="2" cellpadding="6">
+<body style="background-color:black"><center><table style="background-color:white;" border="2" cellpadding="6">
+
 <tr>
+
 <td width="70px" valign="middle">
 <input id="card1" placeholder="Seen Card" onchange="calculate()" style="font-size:120%">
 <br>
@@ -85,9 +75,13 @@ var percent;
 <td width="70px" colspan="3"><div style="padding:3px; text-align:left"><a><b>Tip:</b> You can take any page of decks from the Wizards site (for example: </a><a href="http://www.wizards.com/magic/magazine/Article.aspx?x=mtg/daily/eventcoverage/ptbng14/moderndecks">Top Modern Decks</a>), press ctrl+A to select all, ctrl+C to copy, and then ctrl+V in the Decklist Data box above, and the decklists from the page will be identifiable.</a><br><br>
 <a><b>Pro-Tip!</b> Custom decklists can be used no problem, so long as the format of "Main Deck" and "sideboard cards" is maintained as start and end identifiers for each deck.</a></div></td>
 </tr>
+
 </tr>
-</table>
+
+</table></center></body></html>
+
 <script type="text/javascript">
+
 function calculate() {
 	seencards=0;
 	deckmatchcount=0;
@@ -152,4 +146,3 @@ function example1() {
 	calculate();
 }
 </script>
-</center></body></html>
