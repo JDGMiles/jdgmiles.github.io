@@ -6,7 +6,7 @@ table {border-collapse: collapse; border-spacing: 0;}
 tr, td {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
 </style></head>
 
-<body style="background-color:#000000"><center><table>
+<body style="background-color:#000000" onload="setup()"><center><table>
 <tr>
 	<td id="15" onclick="flip(15)"><img src="ComputerRogue.png"></td>
 	<td id="16" onclick="flip(16)"><img src="ComputerRogue.png"></td>
@@ -151,7 +151,10 @@ tr, td {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertic
 	<td id="155" onclick="flip(155)"><img src="ComputerRogue.png"></td>
 </tr>
 <tr><td colspan="11" onclick="go()"><img src="GO.png" style="width:627px"></td></tr>
-</table></center></body>
+</table>
+
+<table><tr><td id="mapcode"><p style="color:white">0</p></td></tr></table>
+</center></body>
 
 </html>
 
@@ -160,11 +163,21 @@ var state = []; for(var i=0; i<170; i++){state[i]=0;}
 var edgecount = 0;
 var progresscheck = 0;
 var totalcure = 0;
+var binarycode = window.location.search.substring(1);
+
+function setup()
+	{
+		for(var i=0; i<170; i++)
+			{
+				if(parseInt((""+binarycode).charAt(i))==1){flip(i);}
+			}
+	}
 
 function flip(cell)
 	{
 		if(state[cell]==1){document.getElementById(cell).innerHTML="<img src=\"ComputerRogue.png\">"; state[cell]=0; totalcure--;}
 		else{document.getElementById(cell).innerHTML="<img src=\"ComputerFriendly.png\">"; state[cell]=1; totalcure++;}
+		generatecode();
 	}
 
 function step()
@@ -197,6 +210,12 @@ function reset()
 	{
 		for(var i=15; i<156; i++){if(i%13>1){document.getElementById(i).innerHTML="<img src=\"ComputerRogue.png\">"; state[i]=0;}}
 		totalcure=0;
+		generatecode();
+	}
+
+function generatecode()
+	{
+		document.getElementById("mapcode").innerHTML="<p style=\"font-size:10%\">"+state.join("")+"</p>";
 	}
 
 </script>
