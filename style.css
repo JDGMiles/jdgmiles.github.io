@@ -1,0 +1,17 @@
+@font-face {font-family: Liberation Serif; src: url(LiberationSerif.woff);}
+@font-face {font-family: Liberation Serif Bold; src: url(LiberationSerif-Bold.woff);}
+@font-face {font-family: Liberation Serif Italic; src: url(LiberationSerif-Italic.woff);}
+@font-face {font-family: Liberation Serif Bold Italic; src: url(LiberationSerif-BoldItalic.woff);}
+
+body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size: 190%; background-color: black; color:white;}
+
+a:link {color: red; text-decoration: none;}
+a:link:hover {text-decoration:underline}
+a:visited {color: red;}
+
+.liberationregular {font-family:Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+.liberationbold {font-family:Liberation Serif Bold, Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+.liberationbolditalic {font-family:Liberation Serif Bold Italic, Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+.liberationitalic {font-family:Liberation Serif Italic, Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+
+.title {font-size:170%;}
