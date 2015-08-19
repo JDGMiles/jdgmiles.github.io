@@ -241,7 +241,7 @@ if(instructionstate==3){
 	document.getElementById("totalseconds").innerHTML="<a class=\"totaltime\">"+totaltime[1]+"s</a>";}
 	if(rankdelay==100){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">RANK<br></a>"}
 	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">"+ranking[3*totaltime[2]+Math.floor(totaltime[1]/20)]+"</a>";}
-//	if(rankdelay==500){document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML="";document.getElementById("ms").innerHTML="<a href=\"index.html\" style=\"font-size:230%;\">RELOAD</a>";}
+	if(rankdelay==500){document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again</a>";}
 	rankdelay++;
 }
 
