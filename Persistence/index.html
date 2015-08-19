@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Persistence</title>
+
+<script type="text/javascript">
+var won=0;
+
+var msperframe=16;
+
+var ms=0;
+var seconds=0;
+var minutes=0;
+var hours=0;
+
+var totaltime=[];
+totaltime[0]=0;
+totaltime[1]=0;
+totaltime[2]=0;
+totaltime[3]=0;
+
+var field={width:500, height:500};
+
+var paddle={width:100, height:20, speed:5, grabspeed:7, grabcooloff:0, grip:4, gripvariance:0};
+
+var a={fill:"#FF0000", stroke:"black", width:paddle.width, height:paddle.height, v:0, h:0, dir:1, grabdir:1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:paddle.grabcooloff, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:0, prizegrabchance:0.2, missgrabchance:0.08, timesincegrab:0};
+
+var b={fill:"#0000FF", stroke:"black", width:paddle.width, height:paddle.height, v:480, h:450, dir:-1, grabdir:-1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:paddle.grabcooloff, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.25, missgrabchance:0.12, timesincegrab:0};
+
+var block=[];
+block[0]={fill:"454562", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
+block[1]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:0, type:1};
+block[2]={fill:"444444", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
+block[3]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:0, type:1};
+block[4]={fill:"405070", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
+block[5]={fill:"770077", colorwar:8, width:80, height:0, v:0, h:0, type:1};
+block[6]={fill:"332221", colorwar:8, width:100, height:0, v:0, h:0, type:0};
+
+var redblueindex=[];
+redblueindex[0]="0000FF";
+redblueindex[1]="2200DD";
+redblueindex[2]="3300CC";
+redblueindex[3]="4400BB";
+redblueindex[4]="5500AA";
+redblueindex[5]="550099";
+redblueindex[6]="660099";
+redblueindex[7]="770088";
+redblueindex[8]="880088";
+redblueindex[9]="880077";
+redblueindex[10]="990066";
+redblueindex[11]="990055";
+redblueindex[12]="AA0055";
+redblueindex[13]="BB0044";
+redblueindex[14]="CC0033";
+redblueindex[15]="DD0022";
+redblueindex[16]="FF0000";
+
+var instructionstate=0;
+
+var instructions=[];
+instructions[0]="<a style=\"font-size:200%\">CAPTURE THE BLOCKS</a>"
+instructions[1]="<a style=\"font-size:200%\">ACHIEVE MAXIMUM REDNESS</a>"
+instructions[2]="<a style=\"font-size:200%\">HOLD MAXIMUM REDNESS</a>"
+instructions[3]="<a style=\"font-size:240%\">Total Time: "+totaltime[3]+" : "+totaltime[2]+" : "+totaltime[1]+" : "+totaltime[0]+"</a>"
+
+var ranking=[];
+ranking[0]="S++";
+ranking[1]="S+";
+ranking[2]="S";
+ranking[3]="A++";
+ranking[4]="A+";
+ranking[5]="A</a>";
+ranking[6]="B++</a>";
+ranking[7]="B+</a>";
+ranking[8]="B</a>";
+ranking[9]="C++</a>";
+ranking[10]="C+</a>";
+ranking[11]="C</a>";
+ranking[12]="D</a>";
+ranking[13]="E</a>";
+ranking[14]="F</a>";
+for(var i=15; i<100; i++){ranking[i]="N/A";}
+
+var rankdelay=0;
+
+for(var i=0; i<block.length; i++){block[i].h=(field.width-block[i].width)/2; block[i].height=(field.height/block.length);}
+block[6].height=field.height-((block.length-1)*block[5].height);
+
+var blockdrawprogress=0;
+for(var i=0; i<block.length; i++){block[i].v=blockdrawprogress; blockdrawprogress+=block[i].height;}
+
+var topconnect;
+var bottomconnect;
+
+</script>
+
+<style type="text/css">
+::selection {
+	background-color: #000000;
+	color: #000000;
+	}
+
+::-moz-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+
+::-o-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+
+::-ms-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+
+::-webkit-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+
+p::-moz-selection { color: white}
+p::selection { color: white; }
+p {color: white;}
+
+a::-moz-selection { color: white}
+a::selection { color: white; }
+a {color: white;}
+
+.wintime{color:yellow; font-size:200%}
+.wintime::-moz-selection { color: yellow}
+.wintime::selection { color: yellow; }
+
+.totaltime{color:white; font-size:240%}
+.totaltime::-moz-selection { color: white}
+.totaltime::selection { color: white; }
+
+</style>
+</head>
+
+<body style="background-color:#000000">><center>
+
+<canvas onmousedown="agrab()" id="canvas"></canvas>
+<p><a id="hours"></a><a id="minutes"></a><a id="seconds"></a><a id="ms"></a></p>
+<p><a id="message"><a id="totalhours"></a><a id="totalminutes"></a><a id="totalseconds"></a><a id="totalms"></a></p>
+<p><a id="ranking"><a id="grade"></a></p>
+<!-- <button onmousedown="agrab()">LEFT GRAB!</button> -->
+<!-- <button onmousedown="bgrab()">RIGHT GRAB!</button> -->
+
+</center></body>
+
+</html>
+
+<script type="text/javascript">
+
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d");
+
+canvas.width = field.width;
+canvas.height = field.height;
+
+function draw(){
+
+ctx.fillStyle = "white";
+ctx.fillRect(0,0,field.width,field.height);
+
+ctx.fillStyle = a.fill;
+ctx.strokeStyle = a.stroke;
+ctx.fillRect(a.h, a.v, a.width, a.height);
+ctx.strokeRect(a.h, a.v, a.width, a.height);
+
+ctx.fillStyle = b.fill;
+ctx.strokeStyle = b.stroke;
+ctx.fillRect(b.h, b.v, b.width, b.height);
+ctx.strokeRect(b.h, b.v, b.width, b.height);
+
+for(var i=0; i<block.length; i++){
+	ctx.fillStyle = "#"+block[i].fill;
+	if(block[i].type==1){ctx.fillStyle = "#"+redblueindex[block[i].colorwar];}
+	ctx.strokeStyle = block[i].stroke;
+	ctx.fillRect(block[i].h, block[i].v, block[i].width, block[i].height);
+	ctx.strokeRect(block[i].h, block[i].v, block[i].width, block[i].height);
+	blockdrawprogress+=block[i].height;
+
+	}
+
+if(won<3){
+	won=1;
+	for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].h>a.width){won=0;}}
+	if(won==1 && instructionstate==0){instructionstate=1;}
+	for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].colorwar<16){won=0;}}
+	}
+
+if(won==1){
+	ms-=msperframe*((6*minutes)+(2*Math.floor(seconds/10))+2);
+	if(ms<0){ms+=1000; seconds--; if(seconds<0){seconds+=60; minutes--; if(minutes<0){minutes+=60; hours--;}}}
+	if(hours<0){ms=0; seconds=0; minutes=0; hours=0; won=2;}
+	document.getElementById("ms").innerHTML="<a class=\"wintime\"> : "+Math.floor(ms/10)+"</a>";
+	if(ms<100){document.getElementById("ms").innerHTML="<a class=\"wintime\"> : 0"+Math.floor(ms/10)+"</a>";}
+	document.getElementById("seconds").innerHTML="<a class=\"wintime\">"+seconds+"</a>";
+	if(seconds<10){document.getElementById("seconds").innerHTML="<a class=\"wintime\">0"+seconds+"</a>";}
+	document.getElementById("minutes").innerHTML="<a class=\"wintime\">0"+minutes+" : </a>";
+	if(minutes>9){document.getElementById("minutes").innerHTML="<a class=\"wintime\">"+minutes+" : </a>";}
+	if(hours>0){document.getElementById("hours").innerHTML="<a class=\"wintime\">"+hours+" : </a>";}
+	if(instructionstate==1){instructionstate=2;}
+	}
+
+if(won==2){
+	won=3;
+	if(instructionstate==2){instructionstate=3;}
+	}
+
+if(won==0){
+	if(instructionstate<2){ms+=msperframe;}
+	if(ms>999){ms-=999; seconds++;}
+	if(seconds>59){seconds-=59; minutes++;}
+	if(minutes>59){minutes-=59; hours++;}
+	document.getElementById("ms").innerHTML=" : "+Math.floor(ms/10);
+	if(ms<100){document.getElementById("ms").innerHTML=" : 0"+Math.floor(ms/10);}
+	document.getElementById("seconds").innerHTML=seconds;
+	if(seconds<10){document.getElementById("seconds").innerHTML="0"+seconds;}
+	document.getElementById("minutes").innerHTML="0"+minutes+" : ";
+	if(minutes>9){document.getElementById("minutes").innerHTML=minutes+" : ";}
+	if(hours>0){document.getElementById("hours").innerHTML=hours+" : ";}
+	if(instructionstate==2){
+		document.getElementById("ms").innerHTML="<a class=\"wintime\"> : "+Math.floor(ms/10)+"</a>";
+		if(ms<100){document.getElementById("ms").innerHTML="<a class=\"wintime\"> : 0"+Math.floor(ms/10)+"</a>";}
+		document.getElementById("seconds").innerHTML="<a class=\"wintime\">"+seconds+"</a>";
+		if(seconds<10){document.getElementById("seconds").innerHTML="<a class=\"wintime\">0"+seconds+"</a>";}
+		document.getElementById("minutes").innerHTML="<a class=\"wintime\">0"+minutes+" : </a>";
+		if(minutes>9){document.getElementById("minutes").innerHTML="<a class=\"wintime\">"+minutes+" : </a>";}
+		if(hours>0){document.getElementById("hours").innerHTML="<a class=\"wintime\">"+hours+" : </a>";}
+		}
+	}
+
+if(instructionstate==3){
+	if(rankdelay==15){if(totaltime[3]>0){document.getElementById("totalhours").innerHTML="<a class=\"totaltime\">"+totaltime[3]+"h </a>";}
+	document.getElementById("totalminutes").innerHTML="<a class=\"totaltime\">"+totaltime[2]+"m </a>";
+	document.getElementById("totalseconds").innerHTML="<a class=\"totaltime\">"+totaltime[1]+"s</a>";}
+	if(rankdelay==100){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">RANK<br></a>"}
+	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">"+ranking[3*totaltime[2]+Math.floor(totaltime[1]/20)]+"</a>";}
+//	if(rankdelay==500){document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML="";document.getElementById("ms").innerHTML="<a href=\"index.html\" style=\"font-size:230%;\">RELOAD</a>";}
+	rankdelay++;
+}
+
+totaltime[0]+=msperframe;
+if(totaltime[0]>999){totaltime[1]++; totaltime[0]=0;}
+if(totaltime[1]>59){totaltime[2]++; totaltime[1]=0; b.grabspeed--; if(b.grabspeed<1){b.grabspeed=1;}}
+if(totaltime[2]>59){totaltime[3]++; totaltime[2]=0;}
+}
+
+function frame(){
+
+for(var i=1; i<block.length; i++){if(a.v<block[i].v){topconnect=i-1; i=block.length;} else{topconnect=i;}}
+for(var i=1; i<block.length; i++){if(a.v<block[i].v-a.height){bottomconnect=i-1; i=block.length;} else{bottomconnect=i;}}
+if(block[topconnect].h<block[bottomconnect].h){a.connect=topconnect;} else{a.connect=bottomconnect;}
+
+if(a.h>0){graba();}
+else if(a.ai==1){aai();}
+else{aframe()}
+
+for(var i=1; i<block.length; i++){if(b.v<block[i].v){topconnect=i-1; i=block.length;} else{topconnect=i;}}
+for(var i=1; i<block.length; i++){if(b.v<block[i].v-b.height){bottomconnect=i-1; i=block.length;} else{bottomconnect=i;}}
+if(block[topconnect].h>block[bottomconnect].h){b.connect=topconnect;} else{b.connect=bottomconnect;}
+
+if(b.h<field.width-b.width){grabb();}
+else if(b.ai==1){bai();}
+else{bframe()}
+
+draw();
+setTimeout(frame,(msperframe));
+}
+
+function aframe(){
+	a.v+=a.dir*a.speed;
+	if(a.v>(field.height-a.height)-1){a.v=field.height-a.height; a.dir=-1;}
+	if(a.v<1){a.v=0; a.dir=1;}
+	a.timesincegrab++;
+	if(a.timesincegrab>a.grabcooloff){a.timesincegrab=a.grabcooloff+1;}
+	}
+
+function bframe(){
+	b.v+=b.dir*b.speed;
+	if(b.v>(field.height-b.height)-1){b.v=field.height-b.height; b.dir=-1;}
+	if(b.v<1){b.v=0; b.dir=1;}
+	b.timesincegrab++;
+	if(b.timesincegrab>b.grabcooloff){b.timesincegrab=b.grabcooloff+1;}
+	}
+
+function graba(){
+a.h+=a.grabdir*a.grabspeed;
+
+if(a.grabdir==-1 && block[a.connect].type==1 && a.griptime<a.grip){block[a.connect].h+=a.grabdir*a.grabspeed; a.griptime++;}
+
+if(a.h>block[a.connect].h-a.width){a.h=block[a.connect].h-a.width; a.grabdir=-1; if(block[a.connect].type==1){block[a.connect].colorwar++}; if(block[a.connect].colorwar>16){block[a.connect].colorwar=16;}}
+if(a.h<1){a.h=0; a.grabdir=1; a.griptime=0;}
+}
+
+function grabb(){
+b.h+=b.grabdir*b.grabspeed;
+
+if(b.grabdir==1 && block[b.connect].type==1 && b.griptime<b.grip){block[b.connect].h+=b.grabdir*b.grabspeed; b.griptime++;}
+
+if(b.h<block[b.connect].h+block[b.connect].width){b.h=block[b.connect].h+block[b.connect].width; b.grabdir=1; if(block[a.connect].type==1){block[b.connect].colorwar--}; if(block[b.connect].colorwar<0){block[b.connect].colorwar=0;}}
+if(b.h>field.width-b.width-1){b.h=field.width-b.width; b.grabdir=-1; b.griptime=0;}
+}
+
+function aai(){
+	if(a.timesincegrab>a.grabcooloff-1 && block[a.connect].type==1 && a.prizegrabchance>Math.random()){graba(); a.timesincegrab=0;}
+	else if(a.timesincegrab>a.grabcooloff-1 && block[a.connect].type==0 && a.missgrabchance>Math.random()){graba(); a.timesincegrab=0;}
+	else{aframe();}
+}
+
+function bai(){
+	if(b.timesincegrab>b.grabcooloff-1 && block[b.connect].type==1 && b.prizegrabchance>Math.random()){grabb(); b.timesincegrab=0;}
+	else if(b.timesincegrab>b.grabcooloff-1 && block[b.connect].type==0 && b.missgrabchance>Math.random()){grabb(); b.timesincegrab=0;}
+	else{bframe();}
+}
+
+function agrab(){
+	if(a.timesincegrab>a.grabcooloff){graba(); a.timesincegrab=0;}
+	else{framea;}
+}
+
+function bgrab(){
+	if(b.timesincegrab>b.grabcooloff){grabb(); b.timesincegrab=0;}
+	else{frameb;}
+}
+
+frame();
+
+</script>
