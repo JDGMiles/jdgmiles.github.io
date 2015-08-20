@@ -216,7 +216,7 @@ if(won==1){
 	document.getElementById("minutes").innerHTML="<a class=\"wintime\">0"+minutes+" : </a>";
 	if(minutes>9){document.getElementById("minutes").innerHTML="<a class=\"wintime\">"+minutes+" : </a>";}
 	if(hours>0){document.getElementById("hours").innerHTML="<a class=\"wintime\">"+hours+" : </a>";}
-	if(instructionstate==1){instructionstate=2;}
+	if(instructionstate==1){instructionstate=2; if(b.grabspeed<paddle.grabspeed){b.grabspeed++;}}
 	}
 
 if(won==2){
