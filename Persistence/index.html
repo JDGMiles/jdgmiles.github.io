@@ -26,7 +26,7 @@ var paddle={width:100, height:20, speed:5, grabspeed:7, grabcooloff:0, grip:4, g
 
 var a={fill:"#FF0000", stroke:"black", width:paddle.width, height:paddle.height, v:0, h:0, dir:1, grabdir:1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:paddle.grabcooloff, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:0, prizegrabchance:0.2, missgrabchance:0.08, timesincegrab:0};
 
-var b={fill:"#0000FF", stroke:"black", width:paddle.width, height:paddle.height, v:480, h:450, dir:-1, grabdir:-1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:5, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.25, missgrabchance:0.12, timesincegrab:0};
+var b={fill:"#0000FF", stroke:"black", width:paddle.width, height:paddle.height, v:480, h:450, dir:-1, grabdir:-1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:5, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.25, missgrabchance:0.1, timesincegrab:0};
 
 var block=[];
 block[0]={fill:"454562", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
@@ -65,24 +65,36 @@ instructions[2]="<a style=\"font-size:200%\">HOLD MAXIMUM REDNESS</a>"
 instructions[3]="<a style=\"font-size:240%\">Total Time: "+totaltime[3]+" : "+totaltime[2]+" : "+totaltime[1]+" : "+totaltime[0]+"</a>"
 
 var ranking=[];
-ranking[0]="S++";
-ranking[1]="S+";
-ranking[2]="S";
-ranking[3]="A++";
-ranking[4]="A+";
-ranking[5]="A</a>";
-ranking[6]="B++</a>";
-ranking[7]="B+</a>";
-ranking[8]="B</a>";
-ranking[9]="C++</a>";
-ranking[10]="C+</a>";
-ranking[11]="C</a>";
-ranking[12]="D</a>";
-ranking[13]="E</a>";
-ranking[14]="F</a>";
-for(var i=15; i<100; i++){ranking[i]="N/A";}
+ranking[0]="AS GOOD AS JAMES";
+ranking[1]="S++";
+ranking[2]="S+";
+ranking[3]="S";
+ranking[4]="A++";
+ranking[5]="A+";
+ranking[6]="A</a>";
+ranking[7]="B++</a>";
+ranking[8]="B+</a>";
+ranking[9]="B</a>";
+ranking[10]="C++</a>";
+ranking[11]="C+</a>";
+ranking[12]="C</a>";
+ranking[13]="D++</a>";
+ranking[14]="D+</a>";
+ranking[15]="D</a>";
+ranking[16]="E++</a>";
+ranking[17]="E+</a>";
+ranking[18]="E</a>";
+ranking[19]="F++</a>";
+ranking[20]="F+</a>";
+ranking[21]="F</a>";
+ranking[22]="G++</a>";
+ranking[23]="G+</a>";
+ranking[24]="G</a>";
+for(var i=25; i<100; i++){ranking[i]="N/A";}
 
 var rankdelay=0;
+
+var rankstamp=0;
 
 for(var i=0; i<block.length; i++){block[i].h=(field.width-block[i].width)/2; block[i].height=(field.height/block.length);}
 block[6].height=field.height-((block.length-1)*block[5].height);
@@ -236,11 +248,12 @@ if(won==0){
 	}
 
 if(instructionstate==3){
+	if(rankdelay==0){rankstamp=4*totaltime[2]+Math.floor(totaltime[1]/15);}
 	if(rankdelay==15){if(totaltime[3]>0){document.getElementById("totalhours").innerHTML="<a class=\"totaltime\">"+totaltime[3]+"h </a>";}
 	document.getElementById("totalminutes").innerHTML="<a class=\"totaltime\">"+totaltime[2]+"m </a>";
 	document.getElementById("totalseconds").innerHTML="<a class=\"totaltime\">"+totaltime[1]+"s</a>";}
 	if(rankdelay==100){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">RANK<br></a>"}
-	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">"+ranking[3*totaltime[2]+Math.floor(totaltime[1]/20)]+"</a>";}
+	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">"+ranking[rankstamp]+"</a>";}
 	if(rankdelay==500){document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again</a>";}
 	rankdelay++;
 }
