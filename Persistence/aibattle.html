@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Use SPACEBAR and R</title>
+<!DOCTYPE html><html><head><title>AI Battle!</title>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -70,7 +70,7 @@ a {color: white;}
 
 <script type="text/javascript">
 
-document.body.onkeydown = function(e){if(e.keyCode == 32){agrab();} if(e.keyCode == 82){location.reload();}}
+document.body.onkeydown = function(e){if(e.keyCode == 90 || e.keyCode == 81 || e.keyCode == 65){agrab();} if(e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 13){bgrab();} if(e.keyCode == 82){location.reload();}}
 
 var msperframe=16;
 
@@ -89,6 +89,8 @@ var field={width:500, height:500};
 
 var won=0;
 var instructionstate=0;
+var capturecount=0;
+var winner=0;
 
 // var instructions=[];
 // instructions[0]="<a style=\"font-size:200%\">CAPTURE THE BLOCKS</a>"
@@ -98,9 +100,9 @@ var instructionstate=0;
 
 var paddle={width:100, height:20, speed:5, grabspeed:7, grabcooloff:0, grip:4, gripvariance:0};
 
-var a={fill:"#FF0000", stroke:"black", width:paddle.width, height:paddle.height, v:0, h:0, dir:1, grabdir:1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:paddle.grabcooloff, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:0, prizegrabchance:0.2, missgrabchance:0.08, timesincegrab:0};
+var a={fill:"#FF0000", stroke:"black", width:paddle.width, height:paddle.height, v:0, h:0, dir:1, grabdir:1, speed:3, grabspeed:12, grabcooloff:paddle.grabcooloff, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.17, missgrabchance:0.012, timesincegrab:0};
 
-var b={fill:"#0000FF", stroke:"black", width:paddle.width, height:paddle.height, v:field.height-paddle.height, h:field.width-paddle.width, dir:-1, grabdir:-1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:4, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.25, missgrabchance:0.1, timesincegrab:0};
+var b={fill:"#0000FF", stroke:"black", width:paddle.width, height:paddle.height, v:field.height-paddle.height, h:field.width-paddle.width, dir:-1, grabdir:-1, speed:9, grabspeed:4, grabcooloff:paddle.grabcooloff, grip:22, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.4, missgrabchance:0.02, timesincegrab:0};
 
 var block=[];
 block[0]={fill:"454562", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
@@ -203,11 +205,11 @@ for(var i=0; i<block.length; i++){
 	}
 
 if(won<2){
-	won=1;
-	for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].h>a.width){won=0;}}
-	if(won==1 && instructionstate==0){instructionstate=1;}
-	for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].colorwar<16){won=0;}}
-	if(won==1 && instructionstate==1){instructionstate=2; if(b.grabspeed<paddle.grabspeed){b.grabspeed++;}}
+  won=0;
+	for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].h==a.width){capturecount++;} if(block[i].type==1 && block[i].h==field.width-b.width-block[i].width){capturecount--;}}
+	if(capturecount==3 || capturecount==-3){capturecount=0; for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].colorwar==16){capturecount++;} if(block[i].type==1 && block[i].colorwar==0){capturecount--;}}}
+	if(capturecount==3 || capturecount==-3){won=1; instructionstate=2; winner=capturecount/3;}
+  capturecount=0;
 	}
 
 if(won==1){
@@ -251,15 +253,16 @@ if(won==2){
 	if(rankdelay==15){if(totaltime[3]>0){document.getElementById("totalhours").innerHTML="<a class=\"totaltime\">"+totaltime[3]+"h </a>";}
 	document.getElementById("totalminutes").innerHTML="<a class=\"totaltime\">"+totaltime[2]+"m </a>";
 	document.getElementById("totalseconds").innerHTML="<a class=\"totaltime\">"+totaltime[1]+"s</a>";}
-	if(rankdelay==100){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">RANK<br></a>"}
-	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">"+ranking[rankstamp]+"</a>";}
+  if(rankdelay==100 && winner==1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 1<br></a>"}
+  if(rankdelay==100 && winner==-1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 2<br></a>"}
+	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">WINS!</a>";}
 	if(rankdelay==500){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again (R)</a>";}
 	if(!rankdelaystop){rankdelay++;}
 }
 
 totaltime[0]+=msperframe;
 if(totaltime[0]>999){totaltime[1]++; totaltime[0]-=1000;}
-if(totaltime[1]>59){totaltime[2]++; totaltime[1]=0; b.grabspeed--; if(b.grabspeed<1){b.grabspeed=1;}}
+if(totaltime[1]>59){totaltime[2]++; totaltime[1]=0;}
 if(totaltime[2]>59){totaltime[3]++; totaltime[2]=0;}
 }
 
