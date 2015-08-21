@@ -69,10 +69,13 @@ a {color: white;}
 </html>
 
 <script type="text/javascript">
-var spacenonrepeat = 0;
+var spacedown = 0;
 
-document.body.onkeydown = function(e){if(spacenonrepeat == 0 && e.keyCode == 32){agrab(); spacenonrepeat=1;} if(e.keyCode == 82){location.reload();}}
-document.body.onkeyup = function(e){if(e.keyCode == 32){spacenonrepeat=0;}}
+document.body.onkeydown = function(e){
+  if(!spacedown && e.keyCode == 32){agrab(); spacedown=1;}
+  if(e.keyCode == 82){location.reload();}}
+
+document.body.onkeyup = function(e){if(e.keyCode == 32){spacedown=0;}}
 
 var msperframe=16;
 
@@ -110,8 +113,8 @@ block[1]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:
 block[2]={fill:"444444", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
 block[3]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:0, type:1};
 block[4]={fill:"405070", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
-block[5]={fill:"770077", colorwar:8, width:80, height:0, v:0, h:0, type:1};
-block[6]={fill:"332221", colorwar:8, width:100, height:0, v:0, h:0, type:0};
+block[5]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:0, type:1};
+block[6]={fill:"332221", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
 
 for(var i=0; i<block.length; i++){block[i].h=(field.width-block[i].width)/2; block[i].height=(field.height/block.length);}
 block[6].height=field.height-((block.length-1)*block[5].height);

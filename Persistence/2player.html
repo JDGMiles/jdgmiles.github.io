@@ -118,8 +118,8 @@ block[1]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:
 block[2]={fill:"444444", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
 block[3]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:0, type:1};
 block[4]={fill:"405070", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
-block[5]={fill:"770077", colorwar:8, width:80, height:0, v:0, h:0, type:1};
-block[6]={fill:"332221", colorwar:8, width:100, height:0, v:0, h:0, type:0};
+block[5]={fill:"770077", colorwar:8, stroke:"black", width:80, height:0, v:0, h:0, type:1};
+block[6]={fill:"332221", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
 
 for(var i=0; i<block.length; i++){block[i].h=(field.width-block[i].width)/2; block[i].height=(field.height/block.length);}
 block[6].height=field.height-((block.length-1)*block[5].height);
@@ -209,7 +209,6 @@ for(var i=0; i<block.length; i++){
 	ctx.fillRect(block[i].h, block[i].v, block[i].width, block[i].height);
 	ctx.strokeRect(block[i].h, block[i].v, block[i].width, block[i].height);
 	blockdrawprogress+=block[i].height;
-
 	}
 
 if(won<2){
