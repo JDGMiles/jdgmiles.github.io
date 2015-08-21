@@ -250,14 +250,16 @@ if(won==0){
 
 if(won==2){
 	if(rankdelay==0){rankstamp=4*totaltime[2]+Math.floor(totaltime[1]/15);}
-	if(rankdelay==15){if(totaltime[3]>0){document.getElementById("totalhours").innerHTML="<a class=\"totaltime\">"+totaltime[3]+"h </a>";}
+  if(rankdelay==10){if(totaltime[3]>0){document.getElementById("totalhours").innerHTML="<a class=\"totaltime\">"+totaltime[3]+"h </a>";}
 	document.getElementById("totalminutes").innerHTML="<a class=\"totaltime\">"+totaltime[2]+"m </a>";
 	document.getElementById("totalseconds").innerHTML="<a class=\"totaltime\">"+totaltime[1]+"s</a>";}
-  if(rankdelay==100 && winner==1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 1<br></a>"}
-  if(rankdelay==100 && winner==-1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 2<br></a>"}
-	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">WINS!</a>";}
-	if(rankdelay==500){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again (R)</a>";}
-	if(!rankdelaystop){rankdelay++;}
+  if(rankdelay==75 && winner==1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 1<br></a>";}
+  if(rankdelay==75 && winner==-1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 2<br></a>";}
+  if(rankdelay==140){document.getElementById("grade").innerHTML="<a class=\"totaltime\">WINS!</a>";}
+  if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again (R)</a>";}
+  if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Return To 1 Player</a>";}
+  if(!rankdelaystop){rankdelay++;}
+  if(rankdelaystop){rankdelay--;}
 }
 
 totaltime[0]+=msperframe;
