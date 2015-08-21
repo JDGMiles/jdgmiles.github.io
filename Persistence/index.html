@@ -166,6 +166,7 @@ a {color: white;}
 </html>
 
 <script type="text/javascript">
+document.body.onkeydown = function(e){if(e.keyCode == 32){agrab();}}
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d");
