@@ -1,8 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-<title>Persistence</title>
+<!DOCTYPE html><html><head><title>Persistence</title>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -14,8 +10,68 @@
   ga('send', 'pageview');
 </script>
 
+<style type="text/css">
+::selection {
+	background-color: #000000;
+	color: #000000;
+	}
+::-moz-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+::-o-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+::-ms-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+::-webkit-selection {
+	background-color: #000000;
+	color: #000000;
+	}
+
+@font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
+body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif;}
+
+p::-moz-selection { color: white}
+p::selection { color: white; }
+p {color: white;}
+
+a::-moz-selection { color: white}
+a::selection { color: white; }
+a {color: white;}
+
+.wintime{color:yellow; font-size:200%; text-decoration:none;}
+.wintime::-moz-selection { color: yellow}
+.wintime::selection { color: yellow; }
+
+.totaltime{color:white; font-size:240%}
+.totaltime::-moz-selection { color: white}
+.totaltime::selection { color: white; }
+
+/* .playagain{color:#A500E5; font-size:200%; text-decoration:none;}
+.playagain::-moz-selection { color:#9900EE}
+.playagain::selection { color:#9900EE; } */
+</style>
+
+</head>
+
+<body style="background-color:#000000">>
+	<center>
+		<canvas onmousedown="agrab()" id="canvas"></canvas>
+		<p><a id="hours"></a><a id="minutes"></a><a id="seconds"></a><a id="ms"></a></p>
+		<p><a id="message"><a id="totalhours"></a><a id="totalminutes"></a><a id="totalseconds"></a><a id="totalms"></a></p>
+		<p><a id="ranking"><a id="grade"></a></p>
+	</center>
+</body>
+
+</html>
+
 <script type="text/javascript">
-var won=0;
+
+document.body.onkeydown = function(e){if(e.keyCode == 32){agrab();} if(e.keyCode == 82){location.reload();}}
 
 var msperframe=16;
 
@@ -32,11 +88,20 @@ totaltime[3]=0;
 
 var field={width:500, height:500};
 
+var won=0;
+var instructionstate=0;
+
+// var instructions=[];
+// instructions[0]="<a style=\"font-size:200%\">CAPTURE THE BLOCKS</a>"
+// instructions[1]="<a style=\"font-size:200%\">ACHIEVE MAXIMUM REDNESS</a>"
+// instructions[2]="<a style=\"font-size:200%\">HOLD MAXIMUM REDNESS</a>"
+// instructions[3]="<a style=\"font-size:240%\">Total Time: "+totaltime[3]+" : "+totaltime[2]+" : "+totaltime[1]+" : "+totaltime[0]+"</a>"
+
 var paddle={width:100, height:20, speed:5, grabspeed:7, grabcooloff:0, grip:4, gripvariance:0};
 
 var a={fill:"#FF0000", stroke:"black", width:paddle.width, height:paddle.height, v:0, h:0, dir:1, grabdir:1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:paddle.grabcooloff, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:0, prizegrabchance:0.2, missgrabchance:0.08, timesincegrab:0};
 
-var b={fill:"#0000FF", stroke:"black", width:paddle.width, height:paddle.height, v:480, h:450, dir:-1, grabdir:-1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:5, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.25, missgrabchance:0.1, timesincegrab:0};
+var b={fill:"#0000FF", stroke:"black", width:paddle.width, height:paddle.height, v:field.height-paddle.height, h:field.width-paddle.width, dir:-1, grabdir:-1, speed:paddle.speed, grabspeed:paddle.grabspeed, grabcooloff:5, grip:paddle.grip, gripvariance:paddle.gripvariance, connect:0, griptime:0, ai:1, prizegrabchance:0.25, missgrabchance:0.1, timesincegrab:0};
 
 var block=[];
 block[0]={fill:"454562", colorwar:8, stroke:"black", width:100, height:0, v:0, h:0, type:0};
@@ -72,14 +137,6 @@ redblueindex[14]="CC0033";
 redblueindex[15]="DD0022";
 redblueindex[16]="FF0000";
 
-var instructionstate=0;
-
-var instructions=[];
-instructions[0]="<a style=\"font-size:200%\">CAPTURE THE BLOCKS</a>"
-instructions[1]="<a style=\"font-size:200%\">ACHIEVE MAXIMUM REDNESS</a>"
-instructions[2]="<a style=\"font-size:200%\">HOLD MAXIMUM REDNESS</a>"
-instructions[3]="<a style=\"font-size:240%\">Total Time: "+totaltime[3]+" : "+totaltime[2]+" : "+totaltime[1]+" : "+totaltime[0]+"</a>"
-
 var ranking=[];
 ranking[0]="AS GOOD AS JAMES";
 ranking[1]="S++";
@@ -109,74 +166,11 @@ ranking[24]="G</a>";
 for(var i=25; i<100; i++){ranking[i]="N/A";}
 
 var rankdelay=0;
-
+var rankdelaystop=0;
 var rankstamp=0;
 
 var topconnect;
 var bottomconnect;
-
-</script>
-
-<style type="text/css">
-::selection {
-	background-color: #000000;
-	color: #000000;
-	}
-
-::-moz-selection {
-	background-color: #000000;
-	color: #000000;
-	}
-
-::-o-selection {
-	background-color: #000000;
-	color: #000000;
-	}
-
-::-ms-selection {
-	background-color: #000000;
-	color: #000000;
-	}
-
-::-webkit-selection {
-	background-color: #000000;
-	color: #000000;
-	}
-
-p::-moz-selection { color: white}
-p::selection { color: white; }
-p {color: white;}
-
-a::-moz-selection { color: white}
-a::selection { color: white; }
-a {color: white;}
-
-.wintime{color:yellow; font-size:200%}
-.wintime::-moz-selection { color: yellow}
-.wintime::selection { color: yellow; }
-
-.totaltime{color:white; font-size:240%}
-.totaltime::-moz-selection { color: white}
-.totaltime::selection { color: white; }
-</style>
-
-</head>
-
-<body style="background-color:#000000">><center>
-
-<canvas onmousedown="agrab()" id="canvas"></canvas>
-<p><a id="hours"></a><a id="minutes"></a><a id="seconds"></a><a id="ms"></a></p>
-<p><a id="message"><a id="totalhours"></a><a id="totalminutes"></a><a id="totalseconds"></a><a id="totalms"></a></p>
-<p><a id="ranking"><a id="grade"></a></p>
-<!-- <button onmousedown="agrab()">LEFT GRAB!</button> -->
-<!-- <button onmousedown="bgrab()">RIGHT GRAB!</button> -->
-
-</center></body>
-
-</html>
-
-<script type="text/javascript">
-document.body.onkeydown = function(e){if(e.keyCode == 32){agrab();}}
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d");
@@ -209,11 +203,12 @@ for(var i=0; i<block.length; i++){
 
 	}
 
-if(won<3){
+if(won<2){
 	won=1;
 	for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].h>a.width){won=0;}}
 	if(won==1 && instructionstate==0){instructionstate=1;}
 	for(var i=0; i<block.length; i++){if(block[i].type==1 && block[i].colorwar<16){won=0;}}
+	if(won==1 && instructionstate==1){instructionstate=2; if(b.grabspeed<paddle.grabspeed){b.grabspeed++;}}
 	}
 
 if(won==1){
@@ -227,12 +222,6 @@ if(won==1){
 	document.getElementById("minutes").innerHTML="<a class=\"wintime\">0"+minutes+" : </a>";
 	if(minutes>9){document.getElementById("minutes").innerHTML="<a class=\"wintime\">"+minutes+" : </a>";}
 	if(hours>0){document.getElementById("hours").innerHTML="<a class=\"wintime\">"+hours+" : </a>";}
-	if(instructionstate==1){instructionstate=2; if(b.grabspeed<paddle.grabspeed){b.grabspeed++;}}
-	}
-
-if(won==2){
-	won=3;
-	if(instructionstate==2){instructionstate=3;}
 	}
 
 if(won==0){
@@ -258,15 +247,15 @@ if(won==0){
 		}
 	}
 
-if(instructionstate==3){
+if(won==2){
 	if(rankdelay==0){rankstamp=4*totaltime[2]+Math.floor(totaltime[1]/15);}
 	if(rankdelay==15){if(totaltime[3]>0){document.getElementById("totalhours").innerHTML="<a class=\"totaltime\">"+totaltime[3]+"h </a>";}
 	document.getElementById("totalminutes").innerHTML="<a class=\"totaltime\">"+totaltime[2]+"m </a>";
 	document.getElementById("totalseconds").innerHTML="<a class=\"totaltime\">"+totaltime[1]+"s</a>";}
 	if(rankdelay==100){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">RANK<br></a>"}
 	if(rankdelay==180){document.getElementById("grade").innerHTML="<a class=\"totaltime\">"+ranking[rankstamp]+"</a>";}
-	if(rankdelay==500){document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again</a>";}
-	rankdelay++;
+	if(rankdelay==500){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again (R)</a>";}
+	if(!rankdelaystop){rankdelay++;}
 }
 
 totaltime[0]+=msperframe;
@@ -287,7 +276,7 @@ else{aframe()}
 
 for(var i=1; i<block.length; i++){if(b.v<block[i].v){topconnect=i-1; i=block.length;} else{topconnect=i;}}
 for(var i=1; i<block.length; i++){if(b.v<block[i].v-b.height){bottomconnect=i-1; i=block.length;} else{bottomconnect=i;}}
-if(block[topconnect].h>block[bottomconnect].h){b.connect=topconnect;} else{b.connect=bottomconnect;}
+if((block[topconnect].h+block[topconnect].width)>(block[bottomconnect].h+block[bottomconnect].width)){b.connect=topconnect;} else{b.connect=bottomconnect;}
 
 if(b.h<field.width-b.width){grabb();}
 else if(b.ai==1){bai();}
@@ -320,6 +309,7 @@ if(a.grabdir==-1 && block[a.connect].type==1 && a.griptime<a.grip){block[a.conne
 
 if(a.h>block[a.connect].h-a.width){a.h=block[a.connect].h-a.width; a.grabdir=-1; if(block[a.connect].type==1){block[a.connect].colorwar++}; if(block[a.connect].colorwar>16){block[a.connect].colorwar=16;}}
 if(a.h<1){a.h=0; a.grabdir=1; a.griptime=0;}
+if(block[a.connect].h<a.width){block[a.connect].h=a.width;}
 }
 
 function grabb(){
@@ -327,8 +317,9 @@ b.h+=b.grabdir*b.grabspeed;
 
 if(b.grabdir==1 && block[b.connect].type==1 && b.griptime<b.grip){block[b.connect].h+=b.grabdir*b.grabspeed; b.griptime++;}
 
-if(b.h<block[b.connect].h+block[b.connect].width){b.h=block[b.connect].h+block[b.connect].width; b.grabdir=1; if(block[a.connect].type==1){block[b.connect].colorwar--}; if(block[b.connect].colorwar<0){block[b.connect].colorwar=0;}}
+if(b.h<block[b.connect].h+block[b.connect].width){b.h=block[b.connect].h+block[b.connect].width; b.grabdir=1; if(block[b.connect].type==1){block[b.connect].colorwar--}; if(block[b.connect].colorwar<0){block[b.connect].colorwar=0;}}
 if(b.h>field.width-b.width-1){b.h=field.width-b.width; b.grabdir=-1; b.griptime=0;}
+if((block[b.connect].h+block[b.connect].width)>(field.width-b.width)){block[b.connect].h=(field.width-b.width-block[b.connect].width);}
 }
 
 function aai(){
