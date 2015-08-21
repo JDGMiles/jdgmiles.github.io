@@ -69,8 +69,16 @@ a {color: white;}
 </html>
 
 <script type="text/javascript">
+var p1down, p2down = 0;
 
-document.body.onkeydown = function(e){if(e.keyCode == 90 || e.keyCode == 81 || e.keyCode == 65){agrab();} if(e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 13){bgrab();} if(e.keyCode == 82){location.reload();}}
+document.body.onkeydown = function(e){
+  if(!p1down && (e.keyCode == 90 || e.keyCode == 81 || e.keyCode == 65)){agrab(); p1down = 1;}
+  if(!p2down && (e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 13)){bgrab(); p2down = 1;}
+  if(e.keyCode == 82){location.reload();}}
+
+document.body.onkeyup = function(e){
+  if(e.keyCode == 90 || e.keyCode == 81 || e.keyCode == 65){p1down=0;}
+  if(e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 13){p2down=0;}}
 
 var msperframe=16;
 
