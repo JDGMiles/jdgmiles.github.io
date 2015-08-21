@@ -257,7 +257,7 @@ if(won==2){
   if(rankdelay==75 && winner==-1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 2<br></a>";}
   if(rankdelay==140){document.getElementById("grade").innerHTML="<a class=\"totaltime\">WINS!</a>";}
   if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again (R)</a>";}
-  if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Return To 1 Player</a>";}
+  if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Click Here To Return To 1 Player</a>";}
   if(!rankdelaystop){rankdelay++;}
   if(rankdelaystop){rankdelay--;}
 }
