@@ -268,8 +268,8 @@ if(won==2){
   if(rankdelay==75 && winner==1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 1<br></a>";}
   if(rankdelay==75 && winner==-1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 2<br></a>";}
   if(rankdelay==140){document.getElementById("grade").innerHTML="<a class=\"totaltime\">WINS!</a>";}
-  if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"2player.html\">Play Again </a><img src=\"2.png\" style=\"height:30px; vertical-align:middle;\">";}
-	if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">1 Player Mode </a><img src=\"1.png\" style=\"height:30px; vertical-align:middle;\">";}
+  if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"2player.html\">Play Again&nbsp;&nbsp;</a><img src=\"2.png\" style=\"height:30px; vertical-align:middle;\">";}
+	if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">1 Player Mode&nbsp;&nbsp;</a><img src=\"1.png\" style=\"height:30px; vertical-align:middle;\">";}
   if(!rankdelaystop){rankdelay++;}
   if(rankdelaystop){rankdelay--;}
 }
