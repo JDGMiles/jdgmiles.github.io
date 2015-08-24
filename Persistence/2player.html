@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>P1 QAZ || P2 /&#8594ENTER</title>
+<!DOCTYPE html><html><head><title>Persistence 2 Player</title>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,7 +42,7 @@ a::-moz-selection { color: white}
 a::selection { color: white; }
 a {color: white;}
 
-.wintime{color:yellow; font-size:200%; text-decoration:none; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif;}
+.wintime{color:yellow; font-size:200%; text-decoration:none; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; vertical-align:middle;}
 .wintime::-moz-selection {color:yellow}
 .wintime::selection {color:yellow;}
 
@@ -60,9 +60,13 @@ a {color: white;}
 <body style="background-color:#000000">>
 	<center>
 		<canvas onmousedown="agrab()" id="canvas"></canvas>
-		<p><a id="hours"></a><a id="minutes"></a><a id="seconds"></a><a id="ms"></a></p>
-		<p><a id="message"><a id="totalhours"></a><a id="totalminutes"></a><a id="totalseconds"></a><a id="totalms"></a></p>
-		<p><a id="ranking"><a id="grade"></a></p>
+    <table style="width:500px">
+      <td style="width:125px; text-align:left"><p><img src="Q.png" style="height:34px"> <img src="A.png" style="height:30px"> <img src="Z.png" style="height:26px"></p></td>
+      <td style="width:250px; text-align:center"><p><a id="hours"></a><a id="minutes"></a><a id="seconds"></a><a id="ms"></a></p></td>
+      <td style="width:125px; text-align:right"><p><img src="RightArrow.png" style="height:26px"> <img src="Slash.png" style="height:30px"> <img src="P.png" style="height:34px"></p></td>
+    </table>
+		<a id="message"><a id="totalhours"></a><a id="totalminutes"></a><a id="totalseconds"></a><a id="totalms"></a><br>
+		<a id="ranking"><a id="grade"></a>
 	</center>
 </body>
 
@@ -73,12 +77,13 @@ var p1down, p2down = 0;
 
 document.body.onkeydown = function(e){
   if(!p1down && (e.keyCode == 90 || e.keyCode == 81 || e.keyCode == 65)){agrab(); p1down = 1;}
-  if(!p2down && (e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 13)){bgrab(); p2down = 1;}
-  if(e.keyCode == 82){location.reload();}}
+  if(!p2down && (e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 80)){bgrab(); p2down = 1;}
+  if(e.keyCode == 49){window.location.href = "index.html";}
+  if(e.keyCode == 50){location.reload();}}
 
 document.body.onkeyup = function(e){
   if(e.keyCode == 90 || e.keyCode == 81 || e.keyCode == 65){p1down=0;}
-  if(e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 13){p2down=0;}}
+  if(e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 80){p2down=0;}}
 
 var msperframe=16;
 
@@ -263,8 +268,8 @@ if(won==2){
   if(rankdelay==75 && winner==1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 1<br></a>";}
   if(rankdelay==75 && winner==-1){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">PLAYER 2<br></a>";}
   if(rankdelay==140){document.getElementById("grade").innerHTML="<a class=\"totaltime\">WINS!</a>";}
-  if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again (R)</a>";}
-  if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Click Here To Return To 1 Player</a>";}
+  if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"2player.html\">Play Again: </a><img src=\"2.png\" style=\"height:30px; vertical-align:middle;\">";}
+	if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">1-Player Mode: </a><img src=\"1.png\" style=\"height:30px; vertical-align:middle;\">";}
   if(!rankdelaystop){rankdelay++;}
   if(rankdelaystop){rankdelay--;}
 }

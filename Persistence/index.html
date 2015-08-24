@@ -1,4 +1,4 @@
-<!DOCTYPE html><html><head><title>Use SPACEBAR and R</title>
+<!DOCTYPE html><html><head><title>Persistence</title>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,7 +42,7 @@ a::-moz-selection { color: white}
 a::selection { color: white; }
 a {color: white;}
 
-.wintime{color:yellow; font-size:200%; text-decoration:none; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif;}
+.wintime{color:yellow; font-size:200%; text-decoration:none; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; vertical-align:middle;}
 .wintime::-moz-selection {color:yellow}
 .wintime::selection {color:yellow;}
 
@@ -53,6 +53,8 @@ a {color: white;}
 /* .playagain{color:#A500E5; font-size:200%; text-decoration:none;}
 .playagain::-moz-selection { color:#9900EE}
 .playagain::selection { color:#9900EE; } */
+
+/* table, th, td {border:0px; cellpadding:1;} */
 </style>
 
 </head>
@@ -60,9 +62,13 @@ a {color: white;}
 <body style="background-color:#000000">>
 	<center>
 		<canvas onmousedown="agrab()" id="canvas"></canvas>
-		<p><a id="hours"></a><a id="minutes"></a><a id="seconds"></a><a id="ms"></a></p>
-		<p><a id="message"><a id="totalhours"></a><a id="totalminutes"></a><a id="totalseconds"></a><a id="totalms"></a></p>
-		<p><a id="ranking"><a id="grade"></a></p>
+		<table style="width:500px">
+      <td style="width:125px; text-align:left"><p><img src="spacebar.png" style="height:30px"></p></td>
+      <td style="width:250px; text-align:center"><p><a id="hours"></a><a id="minutes"></a><a id="seconds"></a><a id="ms"></a></p></td>
+      <td style="width:125px; text-align:right"><p><img src="MouseLeftClick.png" style="height:43px"></p></td>
+    </table>
+		<a id="message"><a id="totalhours"></a><a id="totalminutes"></a><a id="totalseconds"></a><a id="totalms"></a><br>
+		<a id="ranking"><a id="grade"></a>
 	</center>
 </body>
 
@@ -73,7 +79,8 @@ var spacedown = 0;
 
 document.body.onkeydown = function(e){
   if(!spacedown && e.keyCode == 32){agrab(); spacedown=1;}
-  if(e.keyCode == 82){location.reload();}}
+  if(e.keyCode == 50){window.location.href = "2player.html";}
+  if(e.keyCode == 49){location.reload();}}
 
 document.body.onkeyup = function(e){if(e.keyCode == 32){spacedown=0;}}
 
@@ -258,9 +265,9 @@ if(won==2){
 	document.getElementById("totalseconds").innerHTML="<a class=\"totaltime\">"+totaltime[1]+"s</a>";}
 	if(rankdelay==75){document.getElementById("ranking").innerHTML="<a class=\"totaltime\">RANK<br></a>"}
 	if(rankdelay==140){document.getElementById("grade").innerHTML="<a class=\"totaltime\">"+ranking[rankstamp]+"</a>";}
-  if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"2player.html\">Click Here for Two Player!</a>";}
-  if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again (R)</a>";}
-	if(!rankdelaystop){rankdelay++;}
+  if(rankdelay==350){rankdelaystop=0; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"index.html\">Play Again: </a><img src=\"1.png\" style=\"height:30px; vertical-align:middle;\">";}
+	if(rankdelay==650){rankdelaystop=1; document.getElementById("hours").innerHTML="";document.getElementById("minutes").innerHTML="";document.getElementById("seconds").innerHTML=""; document.getElementById("ms").innerHTML="<a class=\"wintime\" href=\"2player.html\">Try 2-Player: </a><img src=\"2.png\" style=\"height:30px; vertical-align:middle;\">";}
+  if(!rankdelaystop){rankdelay++;}
   if(rankdelaystop){rankdelay--;}
 }
 
