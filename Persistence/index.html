@@ -320,7 +320,7 @@ a.h+=a.grabdir*a.grabspeed;
 
 if(a.grabdir==-1 && block[a.connect].type==1 && a.griptime<a.grip){block[a.connect].h+=a.grabdir*a.grabspeed; a.griptime++;}
 
-if(a.h>block[a.connect].h-a.width){a.h=block[a.connect].h-a.width; a.grabdir=-1; if(block[a.connect].type==1){block[a.connect].colorwar++}; if(block[a.connect].colorwar>16){block[a.connect].colorwar=16;}}
+if(a.h>block[a.connect].h-a.width){a.h=block[a.connect].h-a.width; a.grabdir=-1; if(block[a.connect].type==1){block[a.connect].colorwar+=2;}; if(block[a.connect].colorwar>16){block[a.connect].colorwar=16;}}
 if(a.h<1){a.h=0; a.grabdir=1; a.griptime=0;}
 if(block[a.connect].h<a.width){block[a.connect].h=a.width;}
 }
@@ -330,7 +330,7 @@ b.h+=b.grabdir*b.grabspeed;
 
 if(b.grabdir==1 && block[b.connect].type==1 && b.griptime<b.grip){block[b.connect].h+=b.grabdir*b.grabspeed; b.griptime++;}
 
-if(b.h<block[b.connect].h+block[b.connect].width){b.h=block[b.connect].h+block[b.connect].width; b.grabdir=1; if(block[b.connect].type==1){block[b.connect].colorwar--}; if(block[b.connect].colorwar<0){block[b.connect].colorwar=0;}}
+if(b.h<block[b.connect].h+block[b.connect].width){b.h=block[b.connect].h+block[b.connect].width; b.grabdir=1; if(block[b.connect].type==1){block[b.connect].colorwar-=2;}; if(block[b.connect].colorwar<0){block[b.connect].colorwar=0;}}
 if(b.h>field.width-b.width-1){b.h=field.width-b.width; b.grabdir=-1; b.griptime=0;}
 if((block[b.connect].h+block[b.connect].width)>(field.width-b.width)){block[b.connect].h=(field.width-b.width-block[b.connect].width);}
 }
