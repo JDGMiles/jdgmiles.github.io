@@ -85,7 +85,7 @@ document.body.onkeyup = function(e){
   if(e.keyCode == 90 || e.keyCode == 81 || e.keyCode == 65){p1down=0;}
   if(e.keyCode == 39 || e.keyCode == 191 || e.keyCode == 80){p2down=0;}}
 
-var msperframe=16;
+var msperframe=17;
 
 var ms=0;
 var seconds=0;
@@ -299,7 +299,7 @@ else if(b.ai==1){bai();}
 else{bframe()}
 
 draw();
-setTimeout(frame,(msperframe));
+setTimeout(frame,(msperframe-1));
 }
 
 function aframe(){
