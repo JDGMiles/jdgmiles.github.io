@@ -1,0 +1,78 @@
+<!DOCTYPE html><html><head><title>Stopwatch</title>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-62276892-2', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<style type="text/css">
+html {display: table; margin: auto;}
+html, body {height: 90%;}
+
+@font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
+body {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:550%; vertical-align:middle; display: table-cell;}
+button {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:97%;}
+</style>
+
+</head>
+
+<body>
+	<center><table>
+		<a id="hours">00</a> : <a id="minutes">00</a> : <a id="seconds">00</a> : <a id="ms">000</a><br>
+    <button onclick="startstop()">&nbsp;Stop/Go&nbsp;</button><button onclick="reset()">&nbsp;Reset&nbsp;</button>
+	</center></table>
+</body>
+
+</html>
+
+<script type="text/javascript">
+var msperframe=16;
+
+var ms=0;
+var seconds=0;
+var minutes=0;
+var hours=0;
+
+var go=0;
+
+function updateclock(){
+
+  if(go==1){ms+=msperframe;}
+
+	if(ms>999){ms-=1000; seconds++;}
+	if(seconds>59){seconds-=60; minutes++;}
+	if(minutes>59){minutes-=60; hours++;}
+	document.getElementById("ms").innerHTML=ms;
+  if(ms<100){document.getElementById("ms").innerHTML="0"+ms;}
+  if(ms<10){document.getElementById("ms").innerHTML="00"+ms;}
+	document.getElementById("seconds").innerHTML=seconds;
+	if(seconds<10){document.getElementById("seconds").innerHTML="0"+seconds;}
+	document.getElementById("minutes").innerHTML=minutes;
+	if(minutes<10){document.getElementById("minutes").innerHTML="0"+minutes;}
+	document.getElementById("hours").innerHTML=hours;
+
+  setTimeout(updateclock,msperframe-1);
+}
+
+function startstop(){
+  if(go==0){go=1;}
+  else{go=0;}
+
+	}
+
+function reset(){
+  ms=0;
+  seconds=0;
+  minutes=0;
+  hours=0;
+  go=0;
+}
+
+updateclock();
+
+</script>
