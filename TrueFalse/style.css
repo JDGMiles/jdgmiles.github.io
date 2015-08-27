@@ -1,0 +1,16 @@
+@font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
+@font-face {font-family: Liberation Serif Bold; src: url(http://jdgmiles.github.io/LiberationSerif-Bold.woff);}
+@font-face {font-family: Liberation Serif Italic; src: url(http://jdgmiles.github.io/LiberationSerif-Italic.woff);}
+@font-face {font-family: Liberation Serif Bold Italic; src: url(http://jdgmiles.github.io/LiberationSerif-BoldItalic.woff);}
+
+body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size: 150%; background-color: black; color:white;}
+
+.liberationregular {font-family:Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+.liberationbold {font-family:Liberation Serif Bold, Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+.liberationbolditalic {font-family:Liberation Serif Bold Italic, Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+.liberationitalic {font-family:Liberation Serif Italic, Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif}
+
+.title {font-size:170%;}
+.questions {font-size:95%; line-height:25px; display: block;}
+.answers {font-size:95%; line-height:0px; display: block;}
+.button {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:73%}

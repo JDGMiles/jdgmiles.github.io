@@ -1,0 +1,179 @@
+
+<!DOCTYPE html><html>
+
+<head>
+  <title>&ldquo;The Quiz&rdquo; 2</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body><center><table>
+<tr><p><a class="title" style="border-bottom:3px solid #FFFFFF;">&ldquo;The Quiz&rdquo; 2</a></p></tr>
+
+<tr>
+  <td style="width:400px; border:1px solid white; padding:10px"><center>
+    <p>This version is designed to test two strategies.</p>
+    <p>Strategy A chooses all true, then adjusts one question at a time, keeping the result if it is an improvement and reverting if not.</p>
+    <p>Strategy B takes a "divide and conquer" approach.</p>
+  </center></td>
+
+  <td style="width:30px"></td>
+
+  <td style="width:76px; border:1px solid white;"><center>
+    <a class="questions">
+      &nbsp;01.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;02.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;03.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;04.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;05.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;06.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;07.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;08.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;09.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;10.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;11.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;12.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;13.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;14.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;15.&nbsp;&nbsp;?&nbsp;<br>
+      &nbsp;16.&nbsp;&nbsp;?&nbsp;
+    </a>
+  </center></td>
+
+  <td style="width:80px; border:1px solid white;"><center>
+    <a class="answers">
+      <button class="button" id="T1" onclick="t(1)">T</button><button class="button" id="F1" onclick="f(1)">F</button><br>
+      <button class="button" id="T2" onclick="t(2)">T</button><button class="button" id="F2" onclick="f(2)">F</button><br>
+      <button class="button" id="T3" onclick="t(3)">T</button><button class="button" id="F3" onclick="f(3)">F</button><br>
+      <button class="button" id="T4" onclick="t(4)">T</button><button class="button" id="F4" onclick="f(4)">F</button><br>
+      <button class="button" id="T5" onclick="t(5)">T</button><button class="button" id="F5" onclick="f(5)">F</button><br>
+      <button class="button" id="T6" onclick="t(6)">T</button><button class="button" id="F6" onclick="f(6)">F</button><br>
+      <button class="button" id="T7" onclick="t(7)">T</button><button class="button" id="F7" onclick="f(7)">F</button><br>
+      <button class="button" id="T8" onclick="t(8)">T</button><button class="button" id="F8" onclick="f(8)">F</button><br>
+      <button class="button" id="T9" onclick="t(9)">T</button><button class="button" id="F9" onclick="f(9)">F</button><br>
+      <button class="button" id="T10" onclick="t(10)">T</button><button class="button" id="F10" onclick="f(10)">F</button><br>
+      <button class="button" id="T11" onclick="t(11)">T</button><button class="button" id="F11" onclick="f(11)">F</button><br>
+      <button class="button" id="T12" onclick="t(12)">T</button><button class="button" id="F12" onclick="f(12)">F</button><br>
+      <button class="button" id="T13" onclick="t(13)">T</button><button class="button" id="F13" onclick="f(13)">F</button><br>
+      <button class="button" id="T14" onclick="t(14)">T</button><button class="button" id="F14" onclick="f(14)">F</button><br>
+      <button class="button" id="T15" onclick="t(15)">T</button><button class="button" id="F15" onclick="f(15)">F</button><br>
+      <button class="button" id="T16" onclick="t(16)">T</button><button class="button" id="F16" onclick="f(16)">F</button>
+  </center></td>
+
+    <td style="width:76px; border:1px solid white;"><center>
+      <a class="questions">
+        &nbsp;17.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;18.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;19.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;20.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;21.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;22.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;23.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;24.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;25.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;26.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;27.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;28.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;29.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;30.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;31.&nbsp;&nbsp;?&nbsp;<br>
+        &nbsp;32.&nbsp;&nbsp;?&nbsp;
+      </a>
+    </center></td>
+
+    <td style="width:80px; border:1px solid white;"><center>
+      <a class="answers">
+        <button class="button" id="T17" onclick="t(17)">T</button><button class="button" id="F17" onclick="f(17)">F</button><br>
+        <button class="button" id="T18" onclick="t(18)">T</button><button class="button" id="F18" onclick="f(18)">F</button><br>
+        <button class="button" id="T19" onclick="t(19)">T</button><button class="button" id="F19" onclick="f(19)">F</button><br>
+        <button class="button" id="T20" onclick="t(20)">T</button><button class="button" id="F20" onclick="f(20)">F</button><br>
+        <button class="button" id="T21" onclick="t(21)">T</button><button class="button" id="F21" onclick="f(21)">F</button><br>
+        <button class="button" id="T22" onclick="t(22)">T</button><button class="button" id="F22" onclick="f(22)">F</button><br>
+        <button class="button" id="T23" onclick="t(23)">T</button><button class="button" id="F23" onclick="f(23)">F</button><br>
+        <button class="button" id="T24" onclick="t(24)">T</button><button class="button" id="F24" onclick="f(24)">F</button><br>
+        <button class="button" id="T25" onclick="t(25)">T</button><button class="button" id="F25" onclick="f(25)">F</button><br>
+        <button class="button" id="T26" onclick="t(26)">T</button><button class="button" id="F26" onclick="f(26)">F</button><br>
+        <button class="button" id="T27" onclick="t(27)">T</button><button class="button" id="F27" onclick="f(27)">F</button><br>
+        <button class="button" id="T28" onclick="t(28)">T</button><button class="button" id="F28" onclick="f(28)">F</button><br>
+        <button class="button" id="T29" onclick="t(29)">T</button><button class="button" id="F29" onclick="f(29)">F</button><br>
+        <button class="button" id="T30" onclick="t(30)">T</button><button class="button" id="F30" onclick="f(30)">F</button><br>
+        <button class="button" id="T31" onclick="t(31)">T</button><button class="button" id="F31" onclick="f(31)">F</button><br>
+        <button class="button" id="T32" onclick="t(32)">T</button><button class="button" id="F32" onclick="f(32)">F</button>
+    <center></td>
+</tr>
+<tr>
+  <td style="border:1px solid white;"><center><p>Most recent score: <a id="score">0</a>%</p></center></td>
+  <td></td>
+  <td colspan="4" style=" border:1px solid white;">
+    <center>
+      <button class="button" style="font-size:80%;" onclick="retake()">Retake</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="button" style="font-size:80%;" onclick="submit()">Submit</button></center></td>
+</tr>
+
+<tr>
+  <td style="border:1px solid white;"><center><p>Strategy Submissions: <a id="submissions">0</a></p></center></td>
+  <td></td>
+  <td colspan="4" style=" border:1px solid white;">
+    <center>
+      <button class="button" style="font-size:80%;" onclick="stratA()">Strategy A</button>&nbsp;&nbsp;&nbsp;&nbsp;
+      <button class="button" style="font-size:80%;" onclick="stratB()">Strategy B</button></center></td>
+</tr>
+
+</table></center></body>
+
+</html>
+
+<script type="text/javascript">
+var correctanswers=[]; for(var i=1; i<33; i++){if(Math.random()<0.5){correctanswers[i]=1;} else{correctanswers[i]=2;}}
+var answersheet=[]; for(var i=1; i<33; i++){answersheet[i]=0;}
+
+var score=0;
+var submissions=0;
+
+var runningscore=0;
+
+function stratA () {
+  submissions=0;
+  for(var i=1; i<33; i++){clean(i); t(i);}
+  submit();
+  runningscore=score;
+  var adjustquestion=1;
+  while(runningscore!=100){
+    f(adjustquestion);
+    submit();
+    if(score<runningscore){t(adjustquestion);}
+    else{runningscore=score;}
+    adjustquestion++;
+  }
+}
+
+function t(questionnumber) {
+  document.getElementById("T"+questionnumber).innerHTML="<span style=\"color:blue; font-weight:900;\">T</span>";
+  document.getElementById("F"+questionnumber).innerHTML="<span style=\"color:black; font-weight:normal;\">F</span>";
+  if(answersheet[questionnumber]==2){clean(questionnumber);}
+  else{answersheet[questionnumber]=2;}
+}
+
+function f(questionnumber) {
+  document.getElementById("T"+questionnumber).innerHTML="<span style=\"color:black; font-weight:normal;\">T</span>";
+  document.getElementById("F"+questionnumber).innerHTML="<span style=\"color:red; font-weight:900;\">F</span>";
+  if(answersheet[questionnumber]==1){clean(questionnumber);}
+  else{answersheet[questionnumber]=1;}
+}
+
+function clean(cleannumber) {
+  document.getElementById("T"+cleannumber).innerHTML="<span style=\"color:black; font-weight:normal;\">T</span>";
+  document.getElementById("F"+cleannumber).innerHTML="<span style=\"color:black; font-weight:normal;\">F</span>";
+  answersheet[cleannumber]=0;
+}
+
+function retake() {for(var i=1; i<33; i++) {clean(i);}}
+
+function submit() {
+  score=0;
+  for(var i=1; i<33; i++) {if(correctanswers[i]==answersheet[i]){score+=3.125;}}
+  document.getElementById("score").innerHTML=score;
+  submissions++;
+  document.getElementById("submissions").innerHTML=submissions;
+}
+</script>
