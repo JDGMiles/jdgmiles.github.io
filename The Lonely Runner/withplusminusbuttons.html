@@ -210,11 +210,11 @@ function freeze(){
   else{victoryfreezeonoff=1; document.getElementById("freeze").innerHTML="Lonely Freeze <span style=\"color:#00EE99\">On</span>/Off"}
 }
 
-function speedup(){document.getElementById("simulationspeed").value++;}
-function speeddown(){document.getElementById("simulationspeed").value--; if(document.getElementById("simulationspeed").value<1){document.getElementById("simulationspeed").value=1;}}
+function speedup(){document.getElementById("simulationspeed").value=Math.floor(1.05*document.getElementById("simulationspeed").value);}
+function speeddown(){document.getElementById("simulationspeed").value=Math.floor(0.95*document.getElementById("simulationspeed").value); if(document.getElementById("simulationspeed").value<1){document.getElementById("simulationspeed").value=1;}}
 
-function runnerspeedup(){document.getElementById("runnerspeed").value++;}
-function runnerspeeddown(){document.getElementById("runnerspeed").value--;}
+function runnerspeedup(){document.getElementById("runnerspeed").value=parseInt(document.getElementById("runnerspeed").value)+3;}
+function runnerspeeddown(){document.getElementById("runnerspeed").value=parseInt(document.getElementById("runnerspeed").value)-3;}
 
 draw();
 
