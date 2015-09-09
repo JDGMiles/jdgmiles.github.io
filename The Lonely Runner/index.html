@@ -44,8 +44,8 @@ input {color: white; text-align:center; background-color:#000000; font-family: L
       <button id="freeze" onclick="freeze();" style="width:300px">Lonely Freeze <span style="color:#00EE99">On</span>/Off</button>
     </p>
     <p>
-      <a style="font-size:220%">&nbsp;&nbsp;Yet To Be Alone:&nbsp;</a>
-      <a id="lonelycount" style="font-size:220%"></a>
+      <button onclick="alllonely();" style="width:160px">Wipe Ticks</button>
+      <button style="width:338px; border:0px" type="button" disabled><a>&nbsp;&nbsp;Yet To Be Alone:&nbsp;</a><a id="lonelycount"></a></button>
     </p>
   </center>
 </body>
@@ -86,6 +86,9 @@ var victoryperiod=40;
 var victoryfreeze=0;
 
 var victoryfreezeonoff=1;
+
+var wipecooloff=700;
+var wipecoolofftimer=wipecooloff+1;
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d");
@@ -153,14 +156,15 @@ for(var i=0; i<runners; i++)
   ctx.fillStyle=runnercolor[i];
   ctx.fill();
 
-  if(runnerlonely[i]==0){
+  if(runnerlonely[i]==0 && wipecoolofftimer>wipecooloff){
     runnerlonely[i]=2;
     for(var j=0; j<runners; j++){
-      if(Math.min(Math.abs(runnerprogress[i]-runnerprogress[j]), 2*Math.PI-Math.abs(runnerprogress[i]-runnerprogress[j]))<1.99*Math.PI/runners){runnerlonely[i]--;}
+      if(Math.min(Math.abs(runnerprogress[i]-runnerprogress[j]), 2*Math.PI-Math.abs(runnerprogress[i]-runnerprogress[j]))<=1.99*Math.PI/runners){runnerlonely[i]--;}
       }
     if(runnerlonely[i]<0){runnerlonely[i]=0;}
     if(runnerlonely[i]==1){lonelycount++;}
   }
+  else{wipecoolofftimer++;}
 
   if(runnerlonely[i]==1){
     ctx.font="26px Georgia";
@@ -191,7 +195,8 @@ function addrunner(){
   runnersize[runners]=trackwidth/2-3;
   runnerborder[runners]=1;
 
-  document.getElementById("runnerspeed").value=parseInt(runnerspeed[runners])+Math.floor(120/parseInt(runnerspeed[runners])+1);
+  if(runnerspeed[runners]!=0){document.getElementById("runnerspeed").value=parseInt(runnerspeed[runners])+Math.floor(120/parseInt(runnerspeed[runners])+1);}
+  else{document.getElementById("runnerspeed").value=1;}
 
   runners++;
 
@@ -215,6 +220,8 @@ function speeddown(){document.getElementById("simulationspeed").value=Math.floor
 
 function runnerspeedup(){document.getElementById("runnerspeed").value=parseInt(document.getElementById("runnerspeed").value)+3;}
 function runnerspeeddown(){document.getElementById("runnerspeed").value=parseInt(document.getElementById("runnerspeed").value)-3;}
+
+function alllonely(){for(var i=0; i<runners; i++){runnerlonely[i]=0; runnervictorydance[i]=0} wipecoolofftimer=0; lonelycount=0;}
 
 draw();
 
