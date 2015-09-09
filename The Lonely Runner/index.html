@@ -35,8 +35,9 @@ input {color: white; text-align:center; background-color:#000000; font-family: L
       <input id="runnerspeed" type="text" value="20" onfocus="this.value =''" onblur="if(this.value==''){this.value='20';}" style="width:90px" onchange="updaterunnerspeed()"/>
     </p>
     <p>
-      <button onclick="demo();" style="width:247px">Demonstration</button>
-      <button onclick="location.reload();" style="width:247px">Reset</button>
+      <button onclick="demo();" style="width:90px">Demo</button>
+      <button onclick="location.reload();" style="width:100px">Reset</button>
+      <button id="freeze" onclick="freeze();" style="width:300px">Lonely Freeze <span style="color:#00EE99">On</span>/Off</button>
     </p>
     <p>
       <a style="font-size:220%">&nbsp;&nbsp;Yet To Be Alone:&nbsp;&nbsp;</a>
@@ -163,7 +164,7 @@ for(var i=0; i<runners; i++)
     ctx.fillText("\u2713", field.width/2+Math.sin(runnerprogress[i])*(tracksize-barrierwidth-barrierspace-trackwidth/2)-10, field.height/2+Math.cos(runnerprogress[i])*(tracksize-barrierwidth-barrierspace-trackwidth/2)+10);
   }
 
-  if(go==1 && victoryfreeze==0){runnerprogress[i]+=simulationspeed*runnerspeed[i]/200000;}
+  if(go==1 && (victoryfreeze==0 || victoryfreezeonoff==0)){runnerprogress[i]+=simulationspeed*runnerspeed[i]/200000;}
   if(runnerprogress[i]>2*Math.PI){runnerprogress[i]-=2*Math.PI;}
   if(runnerprogress[i]<0){runnerprogress[i]+=2*Math.PI;}
 
@@ -200,6 +201,10 @@ function addrunner(){
 
 function demo(){for(var i=0; i<10; i++){addrunner();} document.getElementById("runnerspeed").value=Math.floor(document.getElementById("runnerspeed").value/-4);}
 
+function freeze(){
+  if(victoryfreezeonoff==1){victoryfreezeonoff=0; document.getElementById("freeze").innerHTML="Lonely Freeze On/<span style=\"color:red\">Off</span>"}
+  else{victoryfreezeonoff=1; document.getElementById("freeze").innerHTML="Lonely Freeze <span style=\"color:#00EE99\">On</span>/Off"}
+}
 draw();
 
 </script>
