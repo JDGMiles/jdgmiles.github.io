@@ -25,11 +25,9 @@ input {color: white; text-align:center; background-color:#000000; font-family: L
 	<center>
 		<canvas id="canvas"></canvas>
     <p>
-      <button onclick="startstop()" style="width:150px">Start / Stop</button>
-      <a style="font-size:180%">&nbsp;Simulation Speed:&nbsp;</a>
-      <button onclick="speeddown()" style="width:24px">&#8722;</button>
-      <input id="simulationspeed" type="text" value="100" onblur="if(this.value==''){this.value='100';}" style="width:56px"/>
-      <button onclick="speedup()" style="width:24px">+</button>
+      <button onclick="demo();" style="width:94px">Demo</button>
+      <button onclick="location.reload();" style="width:100px">Reset</button>
+      <button id="freeze" onclick="freeze();" style="width:300px">Lonely Freeze <span style="color:#00EE99">On</span>/Off</button>
     </p>
     <p>
       <button onclick="addrunner()" style="width:192px">Add Runner</button>
@@ -39,13 +37,15 @@ input {color: white; text-align:center; background-color:#000000; font-family: L
       <button onclick="runnerspeedup()" style="width:24px">+</button>
     </p>
     <p>
-      <button onclick="demo();" style="width:94px">Demo</button>
-      <button onclick="location.reload();" style="width:100px">Reset</button>
-      <button id="freeze" onclick="freeze();" style="width:300px">Lonely Freeze <span style="color:#00EE99">On</span>/Off</button>
-    </p>
-    <p>
       <button onclick="alllonely();" style="width:160px">Wipe Ticks</button>
       <button style="width:338px; border:0px" type="button" disabled><a>&nbsp;&nbsp;Yet To Be Alone:&nbsp;</a><a id="lonelycount"></a></button>
+    </p>
+    <p>
+      <button onclick="startstop()" style="width:150px">Start / Stop</button>
+      <a style="font-size:180%">&nbsp;Simulation Speed:&nbsp;</a>
+      <button onclick="speeddown()" style="width:24px">&#8722;</button>
+      <input id="simulationspeed" type="text" value="100" onblur="if(this.value==''){this.value='100';}" style="width:56px"/>
+      <button onclick="speedup()" style="width:24px">+</button>
     </p>
   </center>
 </body>
