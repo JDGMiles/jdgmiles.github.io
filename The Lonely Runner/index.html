@@ -25,13 +25,6 @@ input {color: white; text-align:center; background-color:#000000; font-family: L
 	<center>
 		<canvas id="canvas"></canvas>
     <p>
-      <button onclick="addrunner()" style="width:192px">Add Runner</button>
-      <a style="font-size:180%">&nbsp;Runner Speed:&nbsp;</a>
-      <button onclick="runnerspeeddown()" style="width:24px">&#8722;</button>
-      <input id="runnerspeed" type="text" value="20" onblur="if(this.value==''){this.value='20';}" style="width:56px"/>
-      <button onclick="runnerspeedup()" style="width:24px">+</button>
-    </p>
-    <p>
       <button onclick="startstop()" style="width:150px">Start / Stop</button>
       <a style="font-size:180%">&nbsp;Simulation Speed:&nbsp;</a>
       <button onclick="speeddown()" style="width:24px">&#8722;</button>
@@ -39,8 +32,15 @@ input {color: white; text-align:center; background-color:#000000; font-family: L
       <button onclick="speedup()" style="width:24px">+</button>
     </p>
     <p>
+      <button onclick="addrunner()" style="width:192px">Add Runner</button>
+      <a style="font-size:180%">&nbsp;Runner Speed:&nbsp;</a>
+      <button onclick="runnerspeeddown()" style="width:24px">&#8722;</button>
+      <input id="runnerspeed" type="text" value="20" onblur="if(this.value==''){this.value='20';}" style="width:56px"/>
+      <button onclick="runnerspeedup()" style="width:24px">+</button>
+    </p>
+    <p>
       <button onclick="demo();" style="width:94px">Demo</button>
-      <button onclick="location.reload();" style="width:100px">Reset</button>
+      <button onclick="window.location.href='index.html?nodemo';" style="width:100px">Reset</button>
       <button id="freeze" onclick="freeze();" style="width:300px">Lonely Freeze <span style="color:#00EE99">On</span>/Off</button>
     </p>
     <p>
@@ -224,5 +224,6 @@ function runnerspeeddown(){document.getElementById("runnerspeed").value=parseInt
 function alllonely(){for(var i=0; i<runners; i++){runnerlonely[i]=0; runnervictorydance[i]=0} wipecoolofftimer=0; lonelycount=0;}
 
 draw();
+if(window.location.search.substring(1)!="nodemo"){demo();}
 
 </script>
