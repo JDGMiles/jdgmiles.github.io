@@ -4,11 +4,7 @@
 
 <link rel="icon" href="/PuzzleFavicon.ico" type="image/x-icon">
 <link rel="shortcut icon" href="/PuzzleFavicon.ico" type="image/x-icon">
-
-<script type="text/javascript">
-var d=new Array(); for (var i=0;i<6;i++) {d[i] = i+1};
-var p=new Array(); p[0]="&#9856", p[1]="&#9857", p[2]="&#9858", p[3]="&#9859", p[4]="&#9860", p[5]="&#9861";
-</script>
+<link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 
@@ -45,9 +41,25 @@ var p=new Array(); p[0]="&#9856", p[1]="&#9857", p[2]="&#9858", p[3]="&#9859", p
 
 </td></tr></table></td></tr>
 
-</table></center></body></html>
+</table>
+
+<a href="#popup1"><img src="http://jdgmiles.github.io/questionmarkblack.png" style="width:60px"></a>
+<a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitterblack.png" style="width:60px"></a>
+<a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgmblack.png" style="width:60px"></a>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<div style="font-family:Georgia; color:white; text-align:center; font-size:250%">Petals Around the Rose</div>
+		<a class="close" href="#">&times;</a>
+		<p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">The classic Petals Around the Rose puzzle. Click &ldquo;Roll Dice!&rdquo; to roll the dice and &ldquo;Reveal Answer&rdquo; to reveal the answer.</p></div>
+</div>
+
+</center></body>
 
 <script type="text/javascript">
+var d=new Array(); for (var i=0;i<6;i++) {d[i] = i+1};
+var p=new Array(); p[0]="&#9856", p[1]="&#9857", p[2]="&#9858", p[3]="&#9859", p[4]="&#9860", p[5]="&#9861";
+
 function r() {
 	for (var i=0;i<6;i++) {d[i]=Math.round(Math.random()*6)%6+1};
 	for (var i=0;i<6;i++) {
@@ -67,3 +79,4 @@ function s() {
 	document.getElementById("s").innerHTML=s;
 }
 </script>
+</html>

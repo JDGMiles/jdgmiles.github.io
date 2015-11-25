@@ -3,7 +3,40 @@
 <!--Original posting of the problem: https://jdgmiles.wordpress.com/2013/03/13/wednesday-maths-problems-2013-03-13/-->
 <!--Later posting of the problem, with solution: http://www.reddit.com/r/mathriddles/comments/2zhqi5/slot_machine/-->
 
-<head><title>Slot Machine</title>
+<head>
+  <title>Slot Machine</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body onload="initialise()" style="background-color:black;"><center><table class="box" border="2" cellpadding="6">
+
+<tr>
+<td><button style="font-family:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="play()"><a id="playbutton"></button></td>
+<td><button style="font-family:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="roll()"><a id="rollbutton"></button></td>
+<td><button style="font-family:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="cash()"><a id="cashbutton"></button></td>
+</tr>
+
+</table>
+
+<a href="#popup1"><img src="http://jdgmiles.github.io/questionmark.png" style="width:60px"></a>
+<a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px"></a>
+<a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px"></a>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<div style="font-family:Georgia; color:white; text-align:center; font-size:250%">&ldquo;Slot Machine&rdquo;</div>
+		<a class="close" href="#">&times;</a>
+		<p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">Insert $20 and a machine will generate random numbers between 0 and 1 until their total exceeds 1.<br><br>It will then dispense $7 for each number it generated.<br><br>Should you play?</p>
+	</div>
+</div>
+
+</center>
+
+</body>
+
+</html>
+
 <script type="text/javascript">
 var wallet=60;
 var tokens=0;
@@ -15,29 +48,13 @@ var state=2;
 var red="red";
 var green="green";
 var fontsize="font-size:300%";
-</script>
-</head>
-
-<body onload="initialise()" style="background-color:black;"><center><table class="box" border="2" cellpadding="6">
-
-<tr>
-<td><button style="font-family:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="play()"><a id="playbutton"></button></td>
-<td><button style="font-family:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="roll()"><a id="rollbutton"></button></td>
-<td><button style="font-family:helvetica; text-align:center; font-size:200%; width:300px; height:300px" onclick="cash()"><a id="cashbutton"></button></td>
-</tr>
-
-</table></center></body>
-	
-</html>
-
-<script type="text/javascript">
 
 function initialise() {
 		document.getElementById("playbutton").innerHTML="<b>Play</b> (<font color="+red+">$"+costtoplay+"</font>)<br><br>Wallet: $"+wallet;
 		document.getElementById("rollbutton").innerHTML="<font style="+fontsize+">&#9786;</font>";
 		document.getElementById("cashbutton").innerHTML="<b>Cash Tokens</b><br><br>Tokens: "+tokens+" (= $<font color="+green+">"+tokens*tokenvalue+"</font>)";
 	}
-	
+
 
 function play() {
 	if(state==2){state=0;}
