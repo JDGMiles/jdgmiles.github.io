@@ -1,5 +1,8 @@
 <!DOCTYPE html><html><head><title>Write Without Repetition</title>
 
+<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="shortcut icon" href="favicon.ico">
+
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -10,25 +13,19 @@
   ga('send', 'pageview');
 </script>
 
-<style type="text/css">
-
-@font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
-
-button, body, a, textarea, input {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif;}
-button {padding:0px; font-size:160%;}
-a, input {text-align:center; font-size:160%;}
-.topboxes{padding:10px;10px;10px;10px; text-align:left; height:420px; width:480px; font-size:158%; overflow:auto;}
-.colourbutton{width:222px}
-.bookbutton{width:237px}
-div {border:1px solid white}
-
-</style>
 </head>
 
 <body>
 	<center>
-    <table>
+    <table style="position:absolute; left:10px; bottom:10px; background-color:black;">
+      <td>
+        <a href="#popup1"><img src="http://jdgmiles.github.io/questionmark.png" style="width:60px"></a><br>
+        <a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px"></a><br>
+        <a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px"></a>
+      </td>
+    </table>
 
+    <table>
       <tr>
         <td><textarea class="topboxes" id="raw" type="text" onblur="if(this.value==''){this.value='Put your text here';}" onfocus="if(this.value=='Put your text here'){this.value = ''}"/>This is a tool for identifying repeated words in a piece of writing.
 
@@ -68,8 +65,16 @@ Note: words in the ignore list will be skipped, unless they belong to a repeated
         <a>&nbsp;&nbsp;</a>
         <button onclick="hamlet()" class="bookbutton">Hamlet</button>
       </center></td></tr>
-
     </table>
+
+    <div id="popup1" class="overlay">
+      <div class="popup">
+        <div style="font-family:Georgia; color:white; text-align:center; font-size:250%; border:0px;">Repetition Filter</div>
+        <a class="close" href="#">&times;</a>
+        <p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">Everything is pretty much explained in the sample text. Enjoy!</p>
+      </div>
+    </div>
+
   </center>
 </body>
 </html>
