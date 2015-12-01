@@ -1,0 +1,75 @@
+<!DOCTYPE html><html>
+
+<head>
+	<title>Title Goes Here</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-62276892-2', 'auto');
+    ga('send', 'pageview');
+  </script>
+</head>
+
+<body style="background-color:#000000">
+	<center>
+    <table style="position:absolute; left:10px; top:10px; background-color:black;">
+      <td>
+        <a href="#popup1"><img src="http://jdgmiles.github.io/questionmark.png" style="width:60px; height:60px"></a><br>
+        <a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px; height:60px"></a><br>
+        <a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px; height:60px"></a>
+      </td>
+    </table>
+
+		<canvas onmousedown="" id="canvas"></canvas>
+
+    <div id="popup1" class="overlay">
+    	<div class="popup">
+    		<div style="font-family:Georgia; color:white; text-align:center; font-size:250%">Pop Up Title</div>
+    		<a class="close" href="#">&times;</a>
+    		<p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">Message goes here.</p>
+    	</div>
+    </div>
+
+	</center>
+</body>
+
+</html>
+
+<script type="text/javascript">
+/*
+var keydown = 0;
+
+document.body.onkeydown = function(e){
+	if(!keydown && e.keyCode == 32){yourfunction(); keydown=1;}
+  if(e.keyCode == 50){window.location.href = "2player.html";}
+  if(e.keyCode == 49){location.reload();}}
+
+document.body.onkeyup = function(e){if(e.keyCode == 32){keydown=0;}}
+*/
+
+var msperframe=17;
+var field={width:500, height:500};
+
+var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d");
+
+canvas.width = field.width;
+canvas.height = field.height;
+
+function draw(){
+
+ctx.fillStyle = "white";
+ctx.fillRect(0,0,field.width,field.height);
+
+setTimeout(draw,(msperframe-1))
+}
+
+draw();
+
+</script>
