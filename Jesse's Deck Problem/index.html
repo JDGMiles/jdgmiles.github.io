@@ -1,20 +1,32 @@
-<!DOCTYPE html><html><head>
+<!DOCTYPE html><html>
 
-<title>Jesse Deck Problem</title>
+  <head>
+    <title>Jesse Deck Problem</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="http://jdgmiles.github.io/JesseDeckProblem/JesseDeckProblem.ico">
 
-<link rel="shortcut icon" href="http://jdgmiles.github.io/JesseDeckProblem/JesseDeckProblem.ico" type="image/x-icon">
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<script type="text/javascript">
+      ga('create', 'UA-62276892-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
 
-var decks = new Array();
-var cardmatchcount = new Array();
-var inputstring, numberofdecks, card1, card2, card3, card4, card5, card6, card7, card8, seencards, curious, deckmatchcount, fearedmatchcount, percent;
+<body style="background-color:black"><center>
 
-</script>
+	<table style="position:absolute; left:10px; top:10px; background-color:black;">
+      <td>
+        <a href="#popup1"><img src="http://jdgmiles.github.io/questionmark.png" style="width:60px; height:60px"></a><br>
+        <a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px; height:60px"></a><br>
+        <a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px; height:60px"></a>
+      </td>
+    </table>
 
-</head>
-
-<body style="background-color:black"><center><table style="background-color:white;" border="2" cellpadding="6">
+	<table style="background-color:white;" border="2" cellpadding="6">
 
 <tr>
 
@@ -70,9 +82,23 @@ var inputstring, numberofdecks, card1, card2, card3, card4, card5, card6, card7,
 
 </tr>
 
-</table></center></body></html>
+</table>
+
+  <div id="popup1" class="overlay">
+  	<div class="popup">
+  		<div style="font-family:Georgia; color:white; text-align:center; font-size:250%">&ldquo;Jesse Deck Problem&rdquo;</div>
+  		<a class="close" href="#">&times;</a>
+  		<p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">This page attempts to solve a problem posed by one of my friends:<br><br>&ldquo;Do you know of any way to search decklists so that, given what cards I have seen in an opponent’s deck, I can get a probability of them playing another, specific card?&rdquo;<br><br>To understand what it's doing, I suggest you click &ldquo;Example&rdquo;.</p>
+  	</div>
+  </div>
+  
+</center></body></html>
 
 <script type="text/javascript">
+
+var decks = new Array();
+var cardmatchcount = new Array();
+var inputstring, numberofdecks, card1, card2, card3, card4, card5, card6, card7, card8, seencards, curious, deckmatchcount, fearedmatchcount, percent;
 
 function calculate() {
 	seencards=0;
