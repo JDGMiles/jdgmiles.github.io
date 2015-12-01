@@ -14,3 +14,60 @@ body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-
 .questions {font-size:95%; line-height:25px; display: block;}
 .answers {font-size:95%; line-height:0px; display: block;}
 .button {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:73%}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border:0px;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index:5;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #181818;
+  border:0px;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 0s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  background-color:#181818;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}

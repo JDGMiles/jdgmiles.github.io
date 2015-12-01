@@ -1,30 +1,44 @@
-<!DOCTYPE html><html><head><title>Triangle Chop</title>
+<!DOCTYPE html><html>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <head>
+  	<title>Triangle Chop</title>
+  	<link rel="stylesheet" type="text/css" href="style.css">
+  	<link rel="shortcut icon" href="favicon.ico">
 
-  ga('create', 'UA-62276892-2', 'auto');
-  ga('send', 'pageview');
-</script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<style type="text/css">
+      ga('create', 'UA-62276892-2', 'auto');
+      ga('send', 'pageview');
+    </script>
 
-@font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
-
-body {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:100%;}
-button {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:230%; width:600px}
-
-</style>
-</head>
+  </head>
 
 <body>
 	<center>
+    <table style="position:absolute; left:10px; top:10px; background-color:black;">
+      <td>
+        <a href="#popup1"><img src="http://jdgmiles.github.io/questionmark.png" style="width:60px; height:60px"></a><br>
+        <a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px; height:60px"></a><br>
+        <a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px; height:60px"></a>
+      </td>
+    </table>
+
 		<canvas id="canvas"></canvas>
     <p><button onclick="next()">&nbsp;<a id="buttontext">SPACEBAR / Click to Progress Steps</a>&nbsp;</button></p>
     <p id="meantrianglepercent"></p>
+
+    <div id="popup1" class="overlay">
+      <div class="popup">
+        <div style="font-family:Georgia; color:white; text-align:center; font-size:250%">Triangle Chop</div>
+        <a class="close" href="#">&times;</a>
+        <p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">You can learn more about his problem by <a href="http://jdgmiles.tumblr.com/post/117613438305/35-chopping-a-triangle" target="_blank">clicking here.</a></p>
+      </div>
+    </div>
+
   </center>
 </body>
 

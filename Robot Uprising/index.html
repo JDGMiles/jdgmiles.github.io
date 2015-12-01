@@ -1,12 +1,22 @@
-<!DOCTYPE html><html><head><title>Robot Uprising</title>
+<!DOCTYPE html><html>
 
-<style type="text/css">
-img {width:55px; height:55px;}
-table {border-collapse: collapse; border-spacing: 0;}
-tr, td {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
-</style></head>
+<head>
+	<title>Robot Uprising</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
 
-<body style="background-color:#000000" onload="setup()"><center><table>
+<body style="background-color:#000000" onload="setup()"><center>
+
+	<table style="position:absolute; left:10px; top:10px; background-color:black;">
+		<td>
+			<a href="#popup1"><img src="http://jdgmiles.github.io/questionmark.png" style="width:60px; height:60px"></a><br>
+			<a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px; height:60px"></a><br>
+			<a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px; height:60px"></a>
+		</td>
+	</table>
+
+	<table>
 <tr>
 	<td id="15" onclick="flip(15)"><img src="ComputerRogue.png"></td>
 	<td id="16" onclick="flip(16)"><img src="ComputerRogue.png"></td>
@@ -154,6 +164,15 @@ tr, td {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertic
 </table>
 
 <table><tr><td id="mapcode"></td></tr></table>
+
+<div id="popup1" class="overlay">
+	<div class="popup">
+		<div style="font-family:Georgia; color:white; text-align:center; font-size:250%">&ldquo;Robot Uprising&rdquo;</div>
+		<a class="close" href="#">&times;</a>
+		<p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">Click a computer to make it happy. When you click the blue lightning bolt at the bottom, the happy computers spread according to some rule.<br><br>Can you figure out the rule, and make the whole grid happy in the fewest number of clicks?</p>
+	</div>
+</div>
+
 </center></body>
 
 </html>

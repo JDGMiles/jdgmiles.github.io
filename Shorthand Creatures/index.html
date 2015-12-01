@@ -8,12 +8,12 @@
 	width: 100px;
 	}
 
-.grow img:hover { 
-	-webkit-transform: scale(2.1); 
-	-ms-transform: scale(2.1); 
-	transform: scale(2.1); 
-	transition: 0.25s ease; 
-	} 
+.grow img:hover {
+	-webkit-transform: scale(2.1);
+	-ms-transform: scale(2.1);
+	transform: scale(2.1);
+	transition: 0.25s ease;
+	}
 
 @font-face {font-family: Beleren; src: url(beleren-bold-webfont.woff);}
 
@@ -21,7 +21,15 @@ p {font-family:Beleren, Georgia;}
 
 </style></head>
 
-<body style="background-color:#000000"><center><table style="padding: 100px 60px 0px 65px"> 
+<body style="background-color:#000000"><center>
+
+	<table style="position:absolute; left:10px; bottom:10px; background-color:black;">
+    <td>
+      <a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px"></a><a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px"></a>
+    </td>
+  </table>
+
+<table style="padding: 100px 60px 0px 65px">
 
 <td style="width:620px; text-align:center"><div class="grow">
 
@@ -46,19 +54,19 @@ p {font-family:Beleren, Georgia;}
 
 </div></td>
 
-<td id="description" style="background-color:black; color:white; width:350px; padding: 0px 0px 0px 75px; text-align:center;"><p style="font-size:290%">Hover over a card for its description</p></td> 
+<td id="description" style="background-color:black; color:white; width:350px; padding: 0px 0px 0px 75px; text-align:center;"><p style="font-size:290%">Hover over a card for its description</p></td>
 
 </table></center></body>
 
-</html> 
+</html>
 
 <script type="text/javascript">
 
-function revert() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">Hover over a card for its description</p>";} 
-function d0() {document.getElementById("description").innerHTML="<p style=\"font-size:190%\">Older players of <i>Magic: The Gathering</i> often use the names of well-known creatures to describe another creature with the same or similar attributes. This page collects those that I have heard people use.</p>";} 
-function d1() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/2 is a &#8220;Squire&#8221;</p>";} 
-function d2() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/4 is a &#8220;Horned Turtle&#8221;</p>";} 
-function d3() {document.getElementById("description").innerHTML="<p style=\"font-size:240%\">A 2/1 for 1 white is a <br>&#8220;Savannah Lions&#8221; or to newer players an &#8220;Elite Vanguard&#8221;</p>";} 
+function revert() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">Hover over a card for its description</p>";}
+function d0() {document.getElementById("description").innerHTML="<p style=\"font-size:190%\">Older players of <i>Magic: The Gathering</i> often use the names of well-known creatures to describe another creature with the same or similar attributes. This page collects those that I have heard people use.</p>";}
+function d1() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/2 is a &#8220;Squire&#8221;</p>";}
+function d2() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 1/4 is a &#8220;Horned Turtle&#8221;</p>";}
+function d3() {document.getElementById("description").innerHTML="<p style=\"font-size:240%\">A 2/1 for 1 white is a <br>&#8220;Savannah Lions&#8221; or to newer players an &#8220;Elite Vanguard&#8221;</p>";}
 function d4() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/1 for 1 red is a &#8220;Jackal Pup&#8221;</p>";}
 function d5() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/1 for 2 mana is a &#8220;Piker&#8221;</p>";}
 function d6() {document.getElementById("description").innerHTML="<p style=\"font-size:290%\">A 2/2 for 2 mana is a &#8220;Bear&#8221;</p>";}

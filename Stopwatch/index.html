@@ -1,31 +1,44 @@
-<!DOCTYPE html><html><head><title>Stopwatch</title>
+<!DOCTYPE html><html>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  <head>
+    <title>Slot Machine</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico">
 
-  ga('create', 'UA-62276892-2', 'auto');
-  ga('send', 'pageview');
-</script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-<style type="text/css">
-html {display: table; margin: auto;}
-html, body {height: 90%;}
-
-@font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
-body {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:550%; vertical-align:middle; display: table-cell;}
-button {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:97%;}
-</style>
-
-</head>
+      ga('create', 'UA-62276892-2', 'auto');
+      ga('send', 'pageview');
+    </script>
+  </head>
 
 <body>
-	<center><table>
+	<center>
+    <table style="position:absolute; left:10px; top:10px; background-color:black;">
+      <td>
+        <a href="#popup1"><img src="http://jdgmiles.github.io/questionmark.png" style="width:60px; height:60px"></a><br>
+        <a href="https://twitter.com/JDGMiles/" target="_blank"><img src="http://jdgmiles.github.io/twitter.png" style="width:60px; height:60px"></a><br>
+        <a href="http://JDGM.org/" target="_blank"><img src="http://jdgmiles.github.io/jdgm.png" style="width:60px; height:60px"></a>
+      </td>
+    </table>
+    <table><span class="stopwatch">
 		<a id="hours">00</a> : <a id="minutes">00</a> : <a id="seconds">00</a> : <a id="ms">000</a><br>
     <button onclick="startstop()">&nbsp;Stop/Go&nbsp;</button><button onclick="reset()">&nbsp;Reset&nbsp;</button>
-	</center></table>
+  </span></table>
+
+  <div id="popup1" class="overlay">
+  	<div class="popup">
+  		<div style="font-family:Georgia; color:white; text-align:center; font-size:250%">&ldquo;Stopwatch&rdquo;</div>
+  		<a class="close" href="#">&times;</a>
+  		<p style="font-family:Georgia; font-size:150%; color:white; text-align:justify;">Click &ldquo;Stop/Go&rdquo; to start or stop.<br><br>Click &ldquo;Reset&rdquo; to reset the stopwatch.<br><br>The point of making this page was to investigate how the Javascript setTimeout function relates to the milliseconds it <i>should</i> be accurately tracking.<br><br>It turns out that the function is not particularly accurate. So be careful!</p>
+  	</div>
+  </div>
+
+	</center>
 </body>
 
 </html>
