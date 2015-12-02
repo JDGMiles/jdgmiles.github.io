@@ -25,7 +25,8 @@ input {color: white; text-align:center; background-color:#000000; font-family: L
   margin: 70px auto;
   padding: 20px;
   background: #181818;
-  border-radius: 5px;
+  border:2px solid #AAAAAA;
+  border-radius: 20px;
   width: 40%;
   position: relative;
   transition: all 0s ease-in-out;

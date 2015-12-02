@@ -44,8 +44,8 @@ a:visited {color:#CF0000;}
   margin: 70px auto;
   padding: 20px;
   background: #181818;
-  border:1px solid #AAAAAA;
-  border-radius: 15px;
+  border:2px solid #AAAAAA;
+  border-radius: 20px;
   width: 40%;
   position: relative;
   transition: all 0s ease-in-out;

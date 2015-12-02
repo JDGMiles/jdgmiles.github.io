@@ -3,7 +3,7 @@
 @font-face {font-family: Liberation Serif Italic; src: url(http://jdgmiles.github.io/LiberationSerif-Italic.woff);}
 @font-face {font-family: Liberation Serif Bold Italic; src: url(http://jdgmiles.github.io/LiberationSerif-BoldItalic.woff);}
 
-body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size: 150%; background-color: black; color:white;}
+body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size: 100%; background-color: black; color:white;}
 
 .overlay {
   position: fixed;
@@ -27,8 +27,8 @@ body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-
   margin: 70px auto;
   padding: 20px;
   background: #181818;
-  border:0px;
-  border-radius: 5px;
+  border: 2px solid #AAAAAA;
+  border-radius: 20px;
   width: 30%;
   position: relative;
   transition: all 0s ease-in-out;
