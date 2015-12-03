@@ -1,3 +1,32 @@
+::selection {
+	background-color: #000000;
+	color: #FFFFFF;
+	}
+::-moz-selection {
+	background-color: #000000;
+  color: #FFFFFF;
+	}
+::-o-selection {
+	background-color: #000000;
+  color: #FFFFFF;
+	}
+::-ms-selection {
+	background-color: #000000;
+  color: #FFFFFF;
+	}
+::-webkit-selection {
+	background-color: #000000;
+  color: #FFFFFF;
+	}
+
+img{
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
 
 body {color: white; background-color:#000000; font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; font-size:100%;}
