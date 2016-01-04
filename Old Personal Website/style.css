@@ -1,0 +1,95 @@
+@font-face {font-family: Liberation Serif; src: url(http://jdgmiles.github.io/LiberationSerif.woff);}
+
+body {font-family: Liberation Serif, Times New Roman; background-color: black;}
+
+a:link {text-decoration: none;}
+a:link:hover {text-decoration:underline;}
+a:visited {color: gray;}
+
+.icon {height:155px; width:155px}
+
+.grow img {transition: 0.25s ease;}
+.grow img:hover {-webkit-transform: scale(1.3); -ms-transform: scale(1.3); transform: scale(1.4); transition: 0.25s ease;}
+
+.shimmer {
+  margin:0 auto;
+  position : relative;
+  top : -.6em;
+  text-align: center;
+  color: rgba(255,255,255,0);
+  padding: 0 0px;
+  background: -webkit-gradient(linear,left top,right top,from(#000000),to(#000000),color-stop(.5,#ffffff));
+  background: -moz-gradient(linear,left top,right top,from(#000000),to(#000000),color-stop(.5,#ffffff));
+  background: gradient(linear,left top,right top,from(#000000),to(#000000),color-stop(.5,#ffffff));
+  -webkit-background-size: 200px 100%;
+  -moz-background-size: 200px 100%;
+  background-size: 200px 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-animation-name: shimmer;
+  -moz-animation-name: shimmer;
+  -webkit-animation-name: shimmer;
+  animation-name: shimmer;
+  -webkit-animation-duration: 14s;
+  -moz-animation-duration: 14s;
+  -webkit-animation-duration: 14s;
+  animation-duration: 14s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-color: #000000;
+}
+
+@-moz-keyframes shimmer {
+  0% {
+    background-position: -1300px;
+  }
+
+  100% {
+    background-position: 1500px;
+  }
+}
+
+@-webkit-keyframes shimmer {
+  0% {
+    background-position: -1300px;
+  }
+
+  100% {
+    background-position: 1500px;
+  }
+}
+
+@-o-keyframes shimmer {
+  0% {
+    background-position: -1300px;
+  }
+
+  100% {
+    background-position: 1500px;
+  }
+}
+
+@-ms-keyframes shimmer {
+  0% {
+    background-position: -1300px;
+  }
+
+  100% {
+    background-position: 1500px;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1300px;
+  }
+
+  100% {
+    background-position: 1500px;
+  }
+}
