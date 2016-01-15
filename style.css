@@ -5,7 +5,7 @@
 
 body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; background-color: black; color:white;}
 
-.entriescolumn {width:730px; padding:0px 80px 0px 80px; text-align:center; font-size: 180%;}
+.entriescolumn {width:735px; padding:0px 80px 0px 80px; text-align:center; font-size: 180%;}
 .entry {background-color:#0C0C0C; border:2px solid #AAAAAA; border-radius:20px; padding:18px 10px 18px 10px;}
 .entryimagecontainer1 {width:450px;background-color:white; border-radius:10px; padding:7px;}
 .entryimagecontainer2 {width:450px;background-color:black; border:1px solid #AAAAAA; border-radius:10px; padding:7px;}
