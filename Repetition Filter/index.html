@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body onload="document.getElementById('raw').value='This is a tool for identifying repeated words in a piece of writing.\n\nPaste a piece of writing into the left box and the words are coloured in the right box based on their proximity to the same word or phrase in the text.\n\nIt is useful for essays, articles, or simply checking an email before sending, to check for clumsy repeated words\n\nNote: words in the ignore list will be skipped, unless they belong to a repeated phrase.'" >
 	<center>
     <table style="position:absolute; left:10px; top:10px; background-color:black;">
       <td>
@@ -28,13 +28,7 @@
 
     <table style="padding:0px 80px 0px 80px;">
       <tr>
-        <td><textarea class="topboxes" id="raw" type="text" onblur="if(this.value==''){this.value='Put your text here';}" onfocus="if(this.value=='Put your text here'){this.value = ''}"/>This is a tool for identifying repeated words in a piece of writing.
-
-Paste a piece of writing into the left box and the words are coloured in the right box based on their proximity to the same word or phrase in the text.
-
-It is useful for essays, articles, or simply checking an email before sending, to check for clumsy repeated words.
-
-Note: words in the ignore list will be skipped, unless they belong to a repeated phrase.</textarea></td>
+        <td><textarea class="topboxes" id="raw" type="text" onblur="if(this.value==''){this.value='This is a tool for identifying repeated words in a piece of writing.\n\nPaste a piece of writing into the left box and the words are coloured in the right box based on their proximity to the same word or phrase in the text.\n\nIt is useful for essays, articles, or simply checking an email before sending, to check for clumsy repeated words\n\nNote: words in the ignore list will be skipped, unless they belong to a repeated phrase.';}" onfocus="if(this.value=='This is a tool for identifying repeated words in a piece of writing.\n\nPaste a piece of writing into the left box and the words are coloured in the right box based on their proximity to the same word or phrase in the text.\n\nIt is useful for essays, articles, or simply checking an email before sending, to check for clumsy repeated words\n\nNote: words in the ignore list will be skipped, unless they belong to a repeated phrase.'){this.value = ''}"/></textarea></td>
         <td><div class="topboxes" id="painted" style="vertical-align:top; padding:10px;10px;10px;10px;" contenteditable="true">Put your text here</div></td>
       </tr>
 
