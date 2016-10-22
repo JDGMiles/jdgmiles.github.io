@@ -53,12 +53,12 @@ a:visited {color:#DD0000;}
 }
 
 .popup {
-  margin: 70px auto;
+  margin: 190px auto;
   padding: 20px;
   background: #181818;
   border:2px solid #AAAAAA;
   border-radius: 20px;
-  width: 30%;
+  width: 400px;
   position: relative;
   transition: all 0s ease-in-out;
 }
@@ -74,7 +74,7 @@ a:visited {color:#DD0000;}
   color: #fff;
 }
 .popup .close:hover {
-  color: #06D85F;
+  color: #EE0000;
 }
 .popup .content {
   max-height: 30%;

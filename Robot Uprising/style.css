@@ -20,12 +20,12 @@ tr, td {margin: 0; padding: 0; border: 0; font-size: 100%; font: inherit; vertic
 }
 
 .popup {
-  margin: 70px auto;
+  margin: 105px auto;
   padding: 20px;
   background: #181818;
   border:2px solid #AAAAAA;
   border-radius: 20px;
-  width: 30%;
+  width: 520px;
   position: relative;
   transition: all 0s ease-in-out;
 }

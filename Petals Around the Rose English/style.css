@@ -16,12 +16,12 @@
 }
 
 .popup {
-  margin: 70px auto;
+  margin: 97px auto;
   padding: 20px;
   background: #181818;
   border:2px solid #AAAAAA;
   border-radius: 20px;
-  width: 40%;
+  width: 680px;
   position: relative;
   transition: all 0s ease-in-out;
 }
