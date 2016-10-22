@@ -30,7 +30,7 @@ button {color: white; background-color:#000000; font-family: Liberation Serif, T
   background: #181818;
   border:2px solid #AAAAAA;
   border-radius: 20px;
-  width: 30%;
+  width: 530px;
   position: relative;
   transition: all 0s ease-in-out;
 }
