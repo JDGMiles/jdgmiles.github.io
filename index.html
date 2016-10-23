@@ -145,7 +145,7 @@ function fadeshuffle(){
 
   if(fadestate==1){fadestage-=fadeamount;}
   if(fadestate==0){fadestage+=0.8*fadeamount;}
-  if(fadestage<0){fadestage=0; fadestate=0; shuffle();}
+  if(fadestage<0){fadestage=0; fadestate=0; shuffle(); scroll(0,0);}
   if(fadestage>1){fadestage=1; fadestate=1; switched=0;}
   for(i=0; i<title.length+2; i++){document.getElementById("entrybox"+i).style.opacity=fadestage;}
   document.getElementById("shufflebutton").style.opacity=fadestage;
