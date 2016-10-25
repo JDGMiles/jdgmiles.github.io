@@ -65,6 +65,22 @@ a:visited {color:#CF0000;}
 .popup .close:hover {
   color: #AA0000;
 }
+
+.popup .secret {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  background-color:#181818;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #181818;
+}
+.popup .secret:hover {
+  color: #EE00AA;
+}
+
 .popup .content {
   max-height: 30%;
   overflow: auto;
