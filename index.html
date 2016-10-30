@@ -55,7 +55,7 @@ var fadestate=1;
 var fadespeed=25;
 var fadeincrements=25;
 var fadeamount=(1/fadeincrements);
-var mode=0; // "featured", "new", "handy", "random"
+var mode=Math.floor(Math.random()*4); // "featured", "new", "handy", "random"
 var chrono=[8, 5, 6, 3, 4, 14, 10, 25, 7, 2, 17, 23, 11, 29, 27, 37, 19, 26, 28, 16, 9, 0, 1, 22, 15, 13, 38, 21, 20, 18, 12, 24, 30, 31, 32, 33, 34, 35, 36];
 for(i=chrono.length; i<title.length; i++){chrono[i]=i;}
 var handy=["2", "34", "27", "31", "30", "23", "4", "12", "24", "26", "19", "18", "14", "9"];
