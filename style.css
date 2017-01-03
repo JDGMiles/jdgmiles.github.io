@@ -12,6 +12,7 @@ body {font-family: Liberation Serif, Tahoma, Arial, Helvetica, Sans-Serif; backg
 .entryimagecontainer3 {width:450px;background-color:white; border:1px solid #AAAAAA; border-radius:10px; padding:7px;}
 .entryimagecontainer4 {width:450px;background-color:black; border:2px solid #AAAAAA; border-radius:10px; padding:8px;}
 .entryimage {width:450px; vertical-align:top;}
+.noimage {width:0px;}
 .entrytext {padding:12px 0px 0px 0px;}
 
 a:link {color:#CF0000; text-decoration: none;}
