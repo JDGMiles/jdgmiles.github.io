@@ -1,0 +1,1 @@
+Popup escapes - make it so that "escape" closes the information overlays.
