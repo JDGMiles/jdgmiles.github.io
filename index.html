@@ -66,7 +66,7 @@ var fadestate=1;
 var fadespeed=25;
 var fadeincrements=25;
 var fadeamount=(1/fadeincrements);
-var mode=3; // Math.floor(Math.random()*4); // "featured", "new", "handy", "random"
+var mode=2; // Math.floor(Math.random()*4); // "featured", "new", "handy", "random"
 var chrono=[8, 5, 6, 3, 4, 14, 10, 25, 7, 2, 17, 23, 11, 29, 27, 37, 19, 26, 28, 16, 9, 0, 1, 22, 15, 13, 38, 21, 20, 18, 12, 24, 30, 31, 32, 33, 34, 35, 36];
 for(i=chrono.length; i<title.length; i++){chrono[i]=i;}
 var handy=["2", "34", "27", "45", "31", "30", "23", "4", "12", "24", "26", "19", "18", "14", "9"];
@@ -143,8 +143,7 @@ function shuffle(){
   mode++;
   mode=mode%4;
 
-  content=""+content+"<div class=\"entry\" id=\"entrybox"+title.length+"\"><center><div class=\"entryimagecontainer1\"><a target=\"_blank\" href=\"http://jdgmiles.github.io/Marcus Du Sautoy/\"><img src=\"Index Page Images/Marcus Du Sautoy.png\" class=\"entryimage\"></a></div></center><div class=\"entrytext\"><a class=\"titlelink\" target=\"_blank\" href=\"http://jdgmiles.github.io/Marcus Du Sautoy/\">Marcus Du Sautoy</a> <br>Not a &ldquo;project&rdquo; but a post from my old uni blog I uploaded to github as a test.<br>I left it here for good luck.</div></div><br><div class=\"entry\" id=\"entrybox"+(title.length+1)+"\"><center><div class=\"entryimagecontainer2\"><a target=\"_blank\" href=\"http://jdgmiles.wordpress.com/\"><img src=\"Index Page Images/Blog.jpg\" class=\"entryimage\"></a></div></center><div class=\"entrytext\"><a class=\"titlelink\" target=\"_blank\" href=\"http://jdgmiles.wordpress.com/\">JDGM Blog</a> <br>Well done, you made it all the way to the bottom!</div></div></td>";
-
+  content=""+content+"<div class=\"entry\" id=\"entrybox"+title.length+"\"><center><div class=\"entryimagecontainer1\"><a target=\"_blank\" href=\"http://jdgmiles.github.io/Marcus Du Sautoy/\"><img src=\"Index Page Images/Marcus Du Sautoy.png\" class=\"entryimage\"></a></div></center><div class=\"entrytext\"><a class=\"titlelink\" target=\"_blank\" href=\"http://jdgmiles.github.io/Marcus Du Sautoy/\">Marcus Du Sautoy</a> <br>Not a &ldquo;project&rdquo; but a post from my old uni blog I uploaded to github as a test.<br>I left it here for good luck.</div></div><br><div class=\"entry\" id=\"entrybox"+(title.length+1)+"\"><center><div class=\"entryimagecontainer2\"><a target=\"_blank\" href=\"http://jdgmiles.wordpress.com/\"><img src=\"Index Page Images/Blog.jpg\" class=\"entryimage\"></a></div></center><div class=\"entrytext\"><a class=\"titlelink\" target=\"_blank\" href=\"http://jdgmiles.wordpress.com/\">JDGM Blog</a> <br>Well done, you made it all the way to the bottom!</div></div></td>"
   document.getElementById("contents").innerHTML=content;
 
   canvas = document.getElementById("canvas");
@@ -172,7 +171,7 @@ function fadeshuffle(){
   if(fadestate==0){fadestage+=0.8*fadeamount;}
   if(fadestage<0){fadestage=0; fadestate=0; shuffle(); scroll(0,0);}
   if(fadestage>1){fadestage=1; fadestate=1; switched=0;}
-  for(i=0; i<title.length+3; i++){document.getElementById("entrybox"+i).style.opacity=fadestage;}
+  for(i=0; i<title.length+2; i++){document.getElementById("entrybox"+i).style.opacity=fadestage;}
   document.getElementById("shufflebutton").style.opacity=fadestage;
   if(fadestate==0 && fadestage!=0){document.getElementById("helpertext").style.opacity=(0.5-Math.abs(0.5-fadestage))*1.1;}
   if(fadestage!=1 || fadestate!=1){if(fadestage==0){setTimeout(fadeshuffle, 13*fadespeed);} else{setTimeout(fadeshuffle, fadespeed);}}
@@ -192,6 +191,9 @@ var ypos=B*Math.sin(b*time)+field.height/2;
 var increment=0.001;
 
 shuffle();
+fadestate=1;
+fadestage=0;
+fadeshuffle();
 
 var canvas = document.getElementById("canvas"),
     ctx = canvas.getContext("2d");
