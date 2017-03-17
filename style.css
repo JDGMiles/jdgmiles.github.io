@@ -19,6 +19,9 @@ a:link {color:#CF0000; text-decoration: none;}
 a:link:hover {text-decoration:underline}
 a:visited {color:#CF0000;}
 
+.elsewhere {color:#CF0000; text-decoration: none;}
+.elsewhere:hover {text-decoration:underline}
+
 .titlelink {font-size:120%}
 .inlinelink {font-size:100%}
 .title {font-size:250%;}
@@ -95,3 +98,9 @@ a:visited {color:#CF0000;}
     width: 70%;
   }
 }
+
+.grow {display:inline}
+.grow img {transition: 0.25s ease;}
+.grow img:hover {-webkit-transform: scale(1.3); -ms-transform: scale(1.3); transform: scale(1.4); transition: 0.25s ease;}
+
+.icon {width:47px; height:47px;}
