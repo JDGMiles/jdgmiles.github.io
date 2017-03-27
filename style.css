@@ -103,4 +103,4 @@ a:visited {color:#CF0000;}
 .grow img {transition: 0.25s ease;}
 .grow img:hover {-webkit-transform: scale(1.3); -ms-transform: scale(1.3); transform: scale(1.4); transition: 0.25s ease;}
 
-.icon {width:47px; height:47px;}
+.icon {width:65px; height:65px;}
