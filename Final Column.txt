@@ -1,4 +1,4 @@
-<<gamejamjim.github.io>>
+<<gamejamjim.com>>
 
 This site presents videogames I have made and contributed to.
 
@@ -10,6 +10,8 @@ Game Jam Jim is James Miles.
 
 ---
 
+<<jdgmiles.com>>
+
 My name is James Miles.
 
 I am a computer programmer, a teacher, a writer, a designer, and a translator.
@@ -19,3 +21,5 @@ Professional: contact@jdgmiles.com.
 ---
 
 Blank: some cool Easter egg
+
+---
