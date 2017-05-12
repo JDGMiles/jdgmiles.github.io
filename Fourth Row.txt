@@ -20,6 +20,4 @@ Professional: contact@jdgmiles.com.
 
 ---
 
-Blank: some cool Easter egg
-
----
+<<Vimeo>>
