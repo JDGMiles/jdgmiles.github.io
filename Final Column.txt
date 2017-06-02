@@ -6,7 +6,7 @@ The best way to find out about new games I am working on - or titles I have newl
 
 Emails will be short and to the point.
 
-Game Jam Jim is James Miles.
+Game Jam Jim is <<James Miles>>.
 
 ---
 
