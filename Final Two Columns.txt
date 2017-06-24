@@ -33,3 +33,7 @@ Professional: contact@jdgmiles.com.
 ---
 
 Cool Easter Egg
+
+---
+
+<<use "GameJamJim" for things going forward, but keep making tweaks to jdgmiles, and uploading competition solutions - keep the streak green>>
