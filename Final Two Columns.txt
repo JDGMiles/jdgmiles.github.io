@@ -14,7 +14,7 @@ Game Jam Jim is <<James Miles>>.
 
 My name is James Miles.
 
-I am a computer programmer, teacher, writer, designer, and translator.
+I am a computer programmer, a teacher, a writer, a designer, and a translator.
 
 Professional: contact@jdgmiles.com.
 
@@ -37,3 +37,11 @@ Cool Easter Egg
 ---
 
 <<use "GameJamJim" for things going forward, but keep making tweaks to jdgmiles, and uploading competition solutions - keep the streak green>>
+
+---
+
+Business card:
+
+James Miles
+Mathematics, Computing, Design
+contact@jdgmiles.com
