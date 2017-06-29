@@ -1,4 +1,4 @@
-<<gamejamjim.com>>
+﻿<<gamejamjim.com>>
 
 This site collects videogames I have made and contributed to.
 
@@ -40,8 +40,8 @@ Cool Easter Egg
 
 ---
 
-Business card:
+Card:
 
-James Miles
+James Miles マイルズ ジェームス
 Mathematics, Computing, Design
 contact@jdgmiles.com
