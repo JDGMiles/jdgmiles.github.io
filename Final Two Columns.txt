@@ -73,4 +73,4 @@ jdgmiles.com // contact@jdgmiles.com
 How does this work?
 jdgmiles.com/businesscard
 
-<<inside: "Ok, go here for everything: jdgmiles.com/completegrid">>
+<<inside: "jdgmiles.com/completegrid">>
