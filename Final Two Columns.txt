@@ -1,4 +1,4 @@
-﻿<<gamejamjim.com>>
+<<gamejamjim.com>>
 
 This site collects videogames I have made and contributed to.
 
@@ -73,4 +73,4 @@ jdgmiles.com // contact@jdgmiles.com
 How does this work?
 jdgmiles.com/businesscard
 
-<<inside: "jdgmiles.com/completegrid">>
+[[inside: "jdgmiles.com/completegrid”]]
