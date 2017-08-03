@@ -1,3 +1,7 @@
+24+
+
+---
+
 <<gamejamjim.com>>
 
 This site collects videogames I have made and contributed to.
@@ -50,7 +54,19 @@ Professional: contact@jdgmiles.com.
 
 ---
 
-<< ? >>
+<< Cube Tutor >>
+
+---
+
+<< Warwick Grad >>
+
+---
+
+<< Tapped Out >>
+
+---
+
+<3 * ?>
 
 ---
 
@@ -58,7 +74,7 @@ Professional: contact@jdgmiles.com.
 
 ---
 
-=35= 5*7
+=24+16=40 5*8
 
 use "GameJamJim" for things going forward, but keep making tweaks to jdgmiles, and uploading competition solutions - keep the streak green
 
