@@ -1,4 +1,4 @@
-24+
+﻿24+
 
 ---
 
@@ -38,7 +38,7 @@ Professional: contact@jdgmiles.com.
 
 ---
 
-<< Twitch account for daily gaming >>
+<< Twitch account for daily gaming/meme-creation/coding >>
 
 ---
 
@@ -97,4 +97,4 @@ jdgmiles.com // contact@jdgmiles.com
 How does this work?
 jdgmiles.com/businesscard
 
-[[inside: "jdgmiles.com/completegrid”]]
+[[inside: "jdgmiles.com/completegrid" (links to single page 8x5 grid)]]
