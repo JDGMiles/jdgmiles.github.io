@@ -1,10 +1,10 @@
-﻿24+
+24+
 
 ---
 
 <<gamejamjim.com>>
 
-This site collects videogames I have made and contributed to.
+This space collects videogames I have made and contributed to.
 
 The best way to find out about new games I am working on - or titles I have newly released - is to join my mailing list.
 
@@ -22,6 +22,8 @@ My name is James Miles.
 
 I am a computer programmer, a teacher, a writer, a designer, and a translator.
 
+In my free time I am a musician, a competitive player of games, and a gymnast.
+
 Professional: contact@jdgmiles.com.
 
 ---
@@ -38,7 +40,7 @@ Professional: contact@jdgmiles.com.
 
 ---
 
-<< Twitch account for daily gaming/meme-creation/coding >>
+<< Twitch account for daily gaming/meme-creation/coding/art/output >>
 
 ---
 
@@ -90,11 +92,14 @@ use "GameJamJim" for things going forward, but keep making tweaks to jdgmiles, a
 
 Card:
 
+(front)
 James Miles マイルズ ジェームス
 Mathematics, Computing, Design
 jdgmiles.com // contact@jdgmiles.com
 
+(back)
 How does this work?
 jdgmiles.com/businesscard
 
-[[inside: "jdgmiles.com/completegrid" (links to single page 8x5 grid)]]
+(inside)
+jdgmiles.com/completegrid <<links to single page 8x5 grid>>
