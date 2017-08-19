@@ -1,1 +1,5 @@
 Popup escapes - make it so that "escape" closes the information overlays.
+
+--
+
+Retired: https://www.twitch.tv/jdgmiles
