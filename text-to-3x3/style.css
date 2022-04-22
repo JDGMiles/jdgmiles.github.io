@@ -1,0 +1,65 @@
+body {background-color:#000000}
+table {border-spacing: 0;}
+tr, td {margin: 0; padding: 0; border: 0; spacing: 0; font-size: 100%; font: inherit; vertical-align: baseline;}
+
+.gridcell {background-color: black;}
+
+a:link {color:#CF0000; text-decoration: none;}
+a:link:hover {text-decoration:underline}
+a:visited {color:#CF0000;}
+
+.inputbox {width:700px; height:385px; font-size:55px; font-family:georgia; color:white; background-color:black; text-align:center;}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index:5;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.popup {
+  margin: 70px auto;
+  padding: 10px;
+  background: #181818;
+  border:2px solid #AAAAAA;
+  border-radius: 20px;
+  width: 400px;
+  position: relative;
+  transition: all 0s ease-in-out;
+}
+
+.popup .close {
+  position: absolute;
+  top: 20px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+.popup .close:hover {
+  color: #FF0000;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}

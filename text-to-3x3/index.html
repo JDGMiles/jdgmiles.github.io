@@ -1,0 +1,113 @@
+<!DOCTYPE html><html>
+<head>
+	<title>Text to 3x3</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+
+<body><center>
+
+	<table style="position:absolute; left:10px; top:10px; background-color:black;">
+		<td>
+			<a href="#popup1"><img title="Information" src="../questionmark.png" style="width:60px; height:60px"></a><br>
+			<a href="https://twitter.com/jimdgmiles" target=blank_><img title="James Miles on Twitter" src="../twitter.png" style="width:60px; height:60px"></a><br>
+			<a href="http://jdgmiles.github.io/" target="_blank"><img title="Projects Page" src="../jdgm.png" style="width:60px; height:60px"></a>
+		</td>
+	</table>
+
+	<div id="popup1" class="overlay">
+		<div class="popup">
+			<br>
+			<a class="close" style="right: 30px;" href="#">&times;</a>
+			<div style="font-family:Georgia; color:white; text-align:center; text-decoration:underline; font-size:50px">Text to 3x3</div>
+			<span style="font-family:Georgia; font-size:40px; color:white; text-align:justify;"><br>Click the text in the box to experiment...<br><br><a target="_blank" href="https://en.wikipedia.org/wiki/3x3">3x3 on Wikipedia</a></span><br><br><br>
+		</div>
+	</div>
+
+	<div style="width:1070px"><table style="padding:0px 80px 0px 80px;" id="tablecontents">
+	</table>
+	<br>
+	<table><tr>
+		<td><textarea id="inputfield" class="inputbox" type="text" onblur="if(this.value==''){this.value='This is a tool to show how  continuous text would look  in Anders de Flon&rsquo;s &ldquo;3x3&rdquo;   typeface. Write text into   the bottom box and it is    displayed above.'}" onfocus="if(this.value=='This is a tool to show how  continuous text would look  in Anders de Flon&rsquo;s &ldquo;3x3&rdquo;   typeface. Write text into   the bottom box and it is    displayed above.'){this.value='';}">This is a tool to show how  continuous text would look  in Anders de Flon&rsquo;s &ldquo;3x3&rdquo;   typeface. Write text into   the bottom box and it is    displayed above.</textarea></td></tr></table>
+</div>
+
+</center></body>
+</html>
+
+<script type="text/javascript">
+var tablecolumns=28*4+1;
+var tablerows=6*4+1;
+var tablecontentsmarkup=" ";
+var maxwidth=900;
+var maxheight=900;
+var cellsize=Math.min(Math.floor(maxwidth/tablecolumns), Math.floor(maxheight/tablerows));
+var cellstate=[];
+for(var i=0; i<tablecolumns*tablerows; i++){cellstate[i]=0;}
+for(var i=0; i<tablerows; i++){
+	tablecontentsmarkup=tablecontentsmarkup+"<tr>";
+	for(var j=0; j<tablecolumns; j++){
+		tablecontentsmarkup=tablecontentsmarkup+"<td class=\"gridcell\" id=\""+(i*tablecolumns+j)+"\" style=\"width:"+cellsize+"px; height:"+cellsize+"px;\"></td>";
+	}
+	tablecontentsmarkup=tablecontentsmarkup+"</tr>";
+}
+
+document.getElementById("tablecontents").innerHTML=tablecontentsmarkup;
+
+var raw;
+
+var typefacedata="111101111110010111110010011111011111101111001011010110100111111111001001011111111111111001010111101110111111111100111110101110111110111111110100110101111101111101111010111001101111101110101100100111111111101111101101111101111111111100111111001111100100011010110111010010101101111101101010101111111101010101101010010110010011000000100010010000101101000011110011010010010110011110011010011100010001110010110111000111010000010010000110011100011110001110001010100000111000000010110010111010001010001010001010111001010";
+
+var startingcell;
+
+function paint(){
+	clear();
+	raw=document.getElementById("inputfield").value;
+	for(var i=0; i<Math.min(raw.length, (((tablecolumns-1)*(tablerows-1))/16)); i++){
+		if(raw.charCodeAt(i)>64 && raw.charCodeAt(i)<91){letterpaint(i, raw.charCodeAt(i)-55);}
+		if(raw.charCodeAt(i)>96 && raw.charCodeAt(i)<123){letterpaint(i, raw.charCodeAt(i)-87);}
+		if(raw.charCodeAt(i)>47 && raw.charCodeAt(i)<58){letterpaint(i, raw.charCodeAt(i)-48);}
+		if(raw.charCodeAt(i)==32){document.getElementById(i).innerHTML="";}
+		if(raw.charCodeAt(i)==46){letterpaint(i, 36);}
+		if(raw.charCodeAt(i)==39 || raw.charCodeAt(i)==8216 || raw.charCodeAt(i)==8217){letterpaint(i, 37);}
+		if(raw.charCodeAt(i)==34 || raw.charCodeAt(i)==8220 || raw.charCodeAt(i)==8221){letterpaint(i, 38);}
+		if(raw.charCodeAt(i)==123){letterpaint(i, 39);}
+		if(raw.charCodeAt(i)==124){letterpaint(i, 40);}
+		if(raw.charCodeAt(i)==125){letterpaint(i, 41);}
+		if(raw.charCodeAt(i)==91){letterpaint(i, 42);}
+		if(raw.charCodeAt(i)==92){letterpaint(i, 43);}
+		if(raw.charCodeAt(i)==93){letterpaint(i, 44);}
+		if(raw.charCodeAt(i)==61){letterpaint(i, 45);}
+		if(raw.charCodeAt(i)==58){letterpaint(i, 46);}
+		if(raw.charCodeAt(i)==59){letterpaint(i, 47);}
+		if(raw.charCodeAt(i)==40){letterpaint(i, 48);}
+		if(raw.charCodeAt(i)==41){letterpaint(i, 49);}
+		if(raw.charCodeAt(i)==47){letterpaint(i, 50);}
+		if(raw.charCodeAt(i)==45){letterpaint(i, 51);}
+		if(raw.charCodeAt(i)==44){letterpaint(i, 52);}
+		if(raw.charCodeAt(i)==43){letterpaint(i, 53);}
+		if(raw.charCodeAt(i)==60){letterpaint(i, 54);}
+		if(raw.charCodeAt(i)==62){letterpaint(i, 55);}
+		if(raw.charCodeAt(i)==63){letterpaint(i, 56);}
+	}
+	setTimeout(paint, 100);
+}
+
+function letterpaint(letternumber, letter){
+	startingcell= 1+tablecolumns + 4*(letternumber%((tablecolumns-1)/4)) + 4*tablecolumns*(Math.floor(letternumber/((tablecolumns-1)/4)));
+	for(var i=0; i<3; i++){
+		for(var j=0; j<3; j++){
+			if(typefacedata[9*letter+i+3*j]=="1"){document.getElementById(startingcell+i+tablecolumns*j).style.backgroundColor="white";}
+			else{document.getElementById(startingcell+i+tablecolumns*j).style.backgroundColor="black";}
+		}
+	}
+}
+
+function clear(){
+	for(var i=0; i<tablecolumns*tablerows; i++){
+		document.getElementById(i).style.backgroundColor="black";
+	}
+}
+
+paint();
+
+</script>
