@@ -1,0 +1,598 @@
+<!DOCTYPE html><html>
+
+<head>
+
+  <title>Sudoku Solver</title>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="shortcut icon" href="favicon.ico">
+
+</head>
+
+<body onload="loadgrid();"><center>
+  <br><br>
+
+  <table>
+    <tr>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('19')"; id="19" class="numbercell"></td>
+            <td onClick="cellclicked('29')"; id="29" class="numbercell"></td>
+            <td onClick="cellclicked('39')"; id="39" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('18')"; id="18" class="numbercell"></td>
+            <td onClick="cellclicked('28')"; id="28" class="numbercell"></td>
+            <td onClick="cellclicked('38')"; id="38" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('17')"; id="17" class="numbercell"></td>
+            <td onClick="cellclicked('27')"; id="27" class="numbercell"></td>
+            <td onClick="cellclicked('37')"; id="37" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('49')"; id="49" class="numbercell"></td>
+            <td onClick="cellclicked('59')"; id="59" class="numbercell"></td>
+            <td onClick="cellclicked('69')"; id="69" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('48')"; id="48" class="numbercell"></td>
+            <td onClick="cellclicked('58')"; id="58" class="numbercell"></td>
+            <td onClick="cellclicked('68')"; id="68" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('47')"; id="47" class="numbercell"></td>
+            <td onClick="cellclicked('57')"; id="57" class="numbercell"></td>
+            <td onClick="cellclicked('67')"; id="67" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('79')"; id="79" class="numbercell"></td>
+            <td onClick="cellclicked('89')"; id="89" class="numbercell"></td>
+            <td onClick="cellclicked('99')"; id="99" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('78')"; id="78" class="numbercell"></td>
+            <td onClick="cellclicked('88')"; id="88" class="numbercell"></td>
+            <td onClick="cellclicked('98')"; id="98" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('77')"; id="77" class="numbercell"></td>
+            <td onClick="cellclicked('87')"; id="87" class="numbercell"></td>
+            <td onClick="cellclicked('97')"; id="97" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('16')"; id="16" class="numbercell"></td>
+            <td onClick="cellclicked('26')"; id="26" class="numbercell"></td>
+            <td onClick="cellclicked('36')"; id="36" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('15')"; id="15" class="numbercell"></td>
+            <td onClick="cellclicked('25')"; id="25" class="numbercell"></td>
+            <td onClick="cellclicked('35')"; id="35" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('14')"; id="14" class="numbercell"></td>
+            <td onClick="cellclicked('24')"; id="24" class="numbercell"></td>
+            <td onClick="cellclicked('34')"; id="34" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('46')"; id="46" class="numbercell"></td>
+            <td onClick="cellclicked('56')"; id="56" class="numbercell"></td>
+            <td onClick="cellclicked('66')"; id="66" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('45')"; id="45" class="numbercell"></td>
+            <td onClick="cellclicked('55')"; id="55" class="numbercell"></td>
+            <td onClick="cellclicked('65')"; id="65" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('44')"; id="44" class="numbercell"></td>
+            <td onClick="cellclicked('54')"; id="54" class="numbercell"></td>
+            <td onClick="cellclicked('64')"; id="64" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('76')"; id="76" class="numbercell"></td>
+            <td onClick="cellclicked('86')"; id="86" class="numbercell"></td>
+            <td onClick="cellclicked('96')"; id="96" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('75')"; id="75" class="numbercell"></td>
+            <td onClick="cellclicked('85')"; id="85" class="numbercell"></td>
+            <td onClick="cellclicked('95')"; id="95" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('74')"; id="74" class="numbercell"></td>
+            <td onClick="cellclicked('84')"; id="84" class="numbercell"></td>
+            <td onClick="cellclicked('94')"; id="94" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+    <tr>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('13')"; id="13" class="numbercell"></td>
+            <td onClick="cellclicked('23')"; id="23" class="numbercell"></td>
+            <td onClick="cellclicked('33')"; id="33" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('12')"; id="12" class="numbercell"></td>
+            <td onClick="cellclicked('22')"; id="22" class="numbercell"></td>
+            <td onClick="cellclicked('32')"; id="32" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('11')"; id="11" class="numbercell"></td>
+            <td onClick="cellclicked('21')"; id="21" class="numbercell"></td>
+            <td onClick="cellclicked('31')"; id="31" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('43')"; id="43" class="numbercell"></td>
+            <td onClick="cellclicked('53')"; id="53" class="numbercell"></td>
+            <td onClick="cellclicked('63')"; id="63" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('42')"; id="42" class="numbercell"></td>
+            <td onClick="cellclicked('52')"; id="52" class="numbercell"></td>
+            <td onClick="cellclicked('62')"; id="62" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('41')"; id="41" class="numbercell"></td>
+            <td onClick="cellclicked('51')"; id="51" class="numbercell"></td>
+            <td onClick="cellclicked('61')"; id="61" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+      <td class="threebythreecell">
+        <table>
+          <tr>
+            <td onClick="cellclicked('73')"; id="73" class="numbercell"></td>
+            <td onClick="cellclicked('83')"; id="83" class="numbercell"></td>
+            <td onClick="cellclicked('93')"; id="93" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('72')"; id="72" class="numbercell"></td>
+            <td onClick="cellclicked('82')"; id="82" class="numbercell"></td>
+            <td onClick="cellclicked('92')"; id="92" class="numbercell"></td>
+          </tr>
+          <tr>
+            <td onClick="cellclicked('71')"; id="71" class="numbercell"></td>
+            <td onClick="cellclicked('81')"; id="81" class="numbercell"></td>
+            <td onClick="cellclicked('91')"; id="91" class="numbercell"></td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+
+  <table style="height:80px; width: 484px; vertical-align:middle;">
+
+    <tr>
+
+      <td style="text-align:left;">
+        <button onclick="solve()" id="solvebuttontext" class="solvebutton">Solve</button>&nbsp;
+        <button onclick="buttontwo();" id="buttontwotext" class="buttontwo">Demo</button>
+      </td>
+
+      <td style="text-align:right;">
+        <a class="icons" href="#popup1"><img src="../questionmark.png" style="width:60px;"></a>
+        <a href="https://twitter.com/jimdgmiles" target=blank_><img src="../twitter.png" style="width:60px; height:60px"></a>
+        <a class="icons" href="http://jdgmiles.github.io/" target="_blank"><img src="../jdgm.png" style="width:60px"></a>
+      </td>
+
+    </tr>
+
+  </table>
+
+  <div id="popup1" class="overlay">
+    <div class="popup">
+      <div style="font-family:Georgia; color:white; text-align:center; font-size:250%">Sudoku Solver</div>
+      <a class="close" href="#">&times;</a>
+      <p style="font-family:Georgia; font-size:150%; color:white; text-align:center;">Click a cell to insert a number.<br><br>Click it again and use the blank button (or type zero) to clear it.<br><br>When you&rsquo;re ready click &ldquo;Solve&rdquo;.</p>
+    </div>
+  </div>
+
+  <div id="picknumber" class="pickingtable" style="visibility:hidden; position:absolute; top:0px; left:0px;">
+    <table>
+      <tr style="vertical-align:middle;">
+        <td onClick="numberpicked('1')"; class="pickingcell"><div id="M1" class="pickingcellcontent">1</div></td>
+        <td onClick="numberpicked('2')"; class="pickingcell"><div id="M2" class="pickingcellcontent">2</div></td>
+        <td onClick="numberpicked('3')"; class="pickingcell"><div id="M3" class="pickingcellcontent">3</div></td>
+      </tr>
+      <tr>
+        <td onClick="numberpicked('4')"; class="pickingcell"><div id="M4" class="pickingcellcontent">4</div></td>
+        <td onClick="numberpicked('5')"; class="pickingcell"><div id="M5" class="pickingcellcontent">5</div></td>
+        <td onClick="numberpicked('6')"; class="pickingcell"><div id="M6" class="pickingcellcontent">6</div></td>
+      </tr>
+      <tr>
+        <td onClick="numberpicked('7')"; class="pickingcell"><div id="M7" class="pickingcellcontent">7</div></td>
+        <td onClick="numberpicked('8')"; class="pickingcell"><div id="M8" class="pickingcellcontent">8</div></td>
+        <td onClick="numberpicked('9')"; class="pickingcell"><div id="M9" class="pickingcellcontent">9</div></td>
+      </tr>
+    </table>
+  </div>
+
+</center></body>
+</html>
+
+<script type="text/javascript">
+
+var cellvalue = []; for(i=0; i<100; i++){cellvalue[i]="";}
+var currentcell=11;
+var examplemode=1;
+var notempty=0;
+
+var possibles = new Array(100); for(var i=0; i< 100; i++){possibles[i] = new Array(10); for(var j=0; j<10; j++){possibles[i][j]=1;}}
+
+var bottomleft=0;
+
+var boxcoords = new Array(11);
+
+for(var i=1; i<10; i++){
+  boxcoords[i] = new Array(11);
+  bottomleft=(30*Math.floor((i+2)/3))-20 + (3*((i+2)%3))+1;
+  boxcoords[i][1] = bottomleft;
+  boxcoords[i][2] = bottomleft+1;
+  boxcoords[i][3] = bottomleft+2;
+  boxcoords[i][4] = bottomleft+10;
+  boxcoords[i][5] = bottomleft+11;
+  boxcoords[i][6] = bottomleft+12;
+  boxcoords[i][7] = bottomleft+20;
+  boxcoords[i][8] = bottomleft+21;
+  boxcoords[i][9] = bottomleft+22;
+}
+
+var initialgrid=window.location.search.substring(1);
+var gridcode=[];
+
+var gridvalid=1;
+var firstinstance=0;
+var countvalueinsubset=0;
+
+var badcell = []; for(i=0; i<100; i++){badcell[i]=0;}
+var deducedcell = []; for(i=0; i<100; i++){badcell[i]=0;}
+
+document.body.onkeydown = function(e){
+	if(e.keyCode>47 && e.keyCode<58){
+    numberpicked(e.keyCode-48);
+    currentcell++;
+    if(currentcell>99){currentcell=11;}
+    if(currentcell%10==0){currentcell++;}
+  }
+}
+
+var progressmade=0;
+var lonepossible=0;
+var possiblecount=0;
+var knowncellsbox=0;
+var knowncellspositioninbox=0;
+var alone=0;
+
+var knowncount=0;
+var solved=0;
+var guesses=0;
+var totalguesses=0;
+var guessesperattempt=81;
+var maxguesses=10000;
+var possiblevaluescount=0;
+var lowestpossiblevaluescount=10;
+var randomstart=0;
+var gridrecord=[100];
+var modifier=0;
+var modified=0;
+
+function loadgrid(){
+  if(initialgrid.length==81){
+    curentcell=11;
+    for(k=1; k<82; k++){
+      if(initialgrid.charAt(k-1)!=0){fillcell(currentcell, initialgrid.charAt(k-1));}
+      currentcell++;
+      if(currentcell%10==0){currentcell++;}
+    }
+    currentcell=11;
+  }
+}
+
+function fillcell(fillinthiscell, withthisvalue){
+  cellvalue[fillinthiscell]=withthisvalue;
+  if(withthisvalue==""){
+    for(i=1; i<10; i++){possibles[fillinthiscell][i]=1;}
+  }
+  else{
+    for(i=1; i<10; i++){if(i!=withthisvalue){possibles[fillinthiscell][i]=0;}}
+    possibles[fillinthiscell][withthisvalue]=1;
+  }
+  checkvalidgrid();
+}
+
+function checkvalidgrid(){
+  gridvalid=1; // starts out assuming valid
+
+  for(i=0; i<100; i++){badcell[i]=0;} // marks all cells not "bad"
+
+  for(i=1; i<10; i++){ // runs through cell values
+    for(j=1; j<10; j++){ // runs through subset position first coords
+
+//checks columns
+      countvalueinsubset=0;
+      for(var k=1; k<10; k++){
+        if(cellvalue[10*j+k]==i){countvalueinsubset++; if(countvalueinsubset>1){badcell[firstinstance]=1; badcell[10*j+k]=1;} firstinstance=10*j+k;}
+      }
+
+//checks rows
+      countvalueinsubset=0;
+      for(var k=1; k<10; k++){
+        if(cellvalue[j+k*10]==i){countvalueinsubset++; if(countvalueinsubset>1){badcell[firstinstance]=1; badcell[j+k*10]=1;} firstinstance=j+k*10;}
+      }
+
+//checks boxes
+      countvalueinsubset=0;
+      for(var k=1; k<10; k++){
+        if(cellvalue[boxcoords[j][k]]==i){countvalueinsubset++; if(countvalueinsubset>1){badcell[firstinstance]=1; badcell[boxcoords[j][k]]=1;} firstinstance=boxcoords[j][k];}
+      }
+    }
+  }
+
+  for(i=0; i<100; i++){if(badcell[i]==1){gridvalid=0; b=10; a=100;}}
+
+//checks for "dead" cells (ones with no possible values)
+  for(i=11; i<100; i++){
+    if(i%10!=0){
+      possiblecount=0;
+      for(j=1; j<10; j++){
+        if(possibles[i][j]==1){possiblecount++;}
+      }
+      if(possiblecount==0){badcell[i]=1; cellvalue[i]="N"; gridvalid=0; b=10; a=100;}
+    }
+  }
+
+  if(gridvalid==0){document.getElementById("solvebuttontext").innerHTML="<span style=\"font-size:87%; color:#EE0000\";>Bad Input!</span>";}
+  else{document.getElementById("solvebuttontext").innerHTML="Solve";}
+
+  updategridvisual();
+}
+
+function updategridvisual(){
+  for(i=11; i<100; i++){
+    if(i%10!=0){
+      if(badcell[i]){document.getElementById(i).innerHTML="<span style=\"color:red;\">"+cellvalue[i]+"</span>";}
+      else if(deducedcell[i]){document.getElementById(i).innerHTML="<span style=\"color:#0000DD;\">"+cellvalue[i]+"</span>";}
+      else{document.getElementById(i).innerHTML="<span style=\"color:black;\">"+cellvalue[i]+"</span>";}
+    }
+  }
+  updatebuttontwostatus();
+}
+
+function updatebuttontwostatus(){
+  for(i=0; i<100; i++){if(cellvalue[i]!=""){notempty=1;}}
+  if(notempty){examplemode=0; document.getElementById("buttontwotext").innerHTML="Clear"; notempty=0;}
+  else{examplemode=1; document.getElementById("buttontwotext").innerHTML="Demo";}
+}
+
+function cellclicked(cellcoords){
+
+  for(p=11; p<100; p++){fillcell(p,cellvalue[p]);}
+
+  closemenu();
+  updategridvisual();
+
+  if(cellvalue[cellcoords]==""){document.getElementById(cellcoords).innerHTML="<span style=\"color:black;\">?</span>";}
+  else{document.getElementById("M"+cellvalue[cellcoords]).innerHTML="";}
+
+  document.getElementById("picknumber").style.visibility="visible";
+  document.getElementById("picknumber").style.left=(event.clientX+10)+"px";
+  document.getElementById("picknumber").style.top=(event.clientY+10)+"px";
+
+  currentcell=cellcoords;
+}
+
+function closemenu(){
+  document.getElementById("picknumber").style.visibility="hidden";
+  for(i=1; i<10; i++){document.getElementById("M"+i).innerHTML=i;}
+}
+
+function numberpicked(pick){
+  if(cellvalue[currentcell]==pick || pick==0){fillcell(currentcell, "");}
+  else{fillcell(currentcell, pick);}
+  closemenu();
+}
+
+function buttontwo(){
+  if(examplemode){window.location.href = "?"+"500000003080507010009030700010000070007000800040000020001020900050106030300000002";}
+  else{window.location.href = "?"+"";}
+}
+
+function solve(){if(gridvalid){
+  progressmade=0;
+
+  for(a=11; a<100; a++){if(a%10!=0){eliminatefromRCB(a);}}
+
+  checkvalidgrid();
+
+  if(gridvalid){for(a=11; a<100; a++){if(a%10!=0){checkforknown(a);}}}
+  if(gridvalid){for(a=11; a<100; a++){if(a%10!=0){for(b=1; b<10; b++){aloneinRCB(a,b);}}}}
+
+  checkifsolved();
+
+  if(!solved && progressmade==1 && gridvalid){solve();}
+  else if(!solved && progressmade==0 && gridvalid && guesses<guessesperattempt){guessvalue();}
+  else if(!solved && totalguesses<maxguesses){restart();}
+}}
+
+function checkifsolved(){
+  knowncount=0;
+  for(i=11; i<100; i++){
+    if(cellvalue[i]!=""){knowncount++;}
+  }
+  if(knowncount==81){solved=1; document.getElementById("solvebuttontext").innerHTML="Solved";}
+}
+
+function restart(){
+  for(i=0; i<100; i++){
+    deducedcell[i]=0;
+    cellvalue[i]=gridrecord[i];
+    if(gridrecord[i]==""){for(j=1; j<10; j++){possibles[i][j]=1;}}
+    else{for(j=1; j<10; j++){possibles[i][j]=0;} possibles[i][gridrecord[i]]=1;}
+  }
+  guesses=0;
+  gridvalid=1;
+  currentcell=11;
+  solve();
+}
+
+function guessvalue(){
+  if(guesses==0){for(i=0; i<100; i++){gridrecord[i]=cellvalue[i];}} // records grid before going into guessing
+
+  guesses++;
+  totalguesses++;
+  lowestpossiblevaluescount=10;
+  document.getElementById("solvebuttontext").innerHTML="<span style=\"font-size:85%\">Guesses: "+guesses+"</span>";
+  for(i=11; i<100; i++){
+    possiblevaluescount=0;
+    for(j=1; j<10; j++){
+      if(possibles[i][j]==1){possiblevaluescount++;}
+    }
+    if(possiblevaluescount==2){lowestpossiblevaluescount=2; i=100;}
+    else if(possiblevaluescount<lowestpossiblevaluescount && possiblevaluescount>2){lowestpossiblevaluescount=possiblevaluescount;}
+  }
+  modifier=Math.floor(90*Math.random());
+  for(i=11; i<100; i++){
+    modified=((i+modifier)%89)+11;
+    if(modified%10!=0){
+      possiblevaluescount=0;
+      for(j=1; j<10; j++){
+        if(possibles[modified][j]==1){possiblevaluescount++;}
+      }
+      if(possiblevaluescount==lowestpossiblevaluescount){
+        randomstart=Math.floor(9*Math.random())+1;
+        while(cellvalue[modified]==""){
+          if(possibles[modified][randomstart]==1){deducedcell[i]=1; cellvalue[modified]=randomstart; for(j=1; j<10; j++){if(j!=randomstart){possibles[modified][j]=0;}}}
+          else{randomstart=(randomstart%9)+1;}
+        }
+        i=100;
+      }
+    }
+  }
+  solve();
+}
+
+function eliminatefromRCB(knowncell){ // eliminates the value of a known cell from all other cells sharing a row, column, and box with it
+  if(cellvalue[knowncell]!=""){
+    for(j=1; j<10; j++){
+
+      if(knowncell%10!=j){
+        if(possibles[10*Math.floor(knowncell/10)+j][cellvalue[knowncell]]==1){ // eliminates in column
+          possibles[10*Math.floor(knowncell/10)+j][cellvalue[knowncell]]=0;
+          progressmade=1;
+        }
+      }
+
+      if(Math.floor(knowncell/10)!=j){
+        if(possibles[(knowncell%10)+(10*j)][cellvalue[knowncell]]==1){ // eliminates in row
+          possibles[(knowncell%10)+(10*j)][cellvalue[knowncell]]=0;
+          progressmade=1;
+        }
+      }
+
+      for(var k=1; k<10; k++){
+        for(var l=1; l<10; l++){
+          if(boxcoords[k][l]==knowncell){knowncellsbox=k; knowncellspositioninbox=l;} // finds box and position in box of known cell
+        }
+      }
+
+      if(knowncellspositioninbox!=j){
+        if(possibles[boxcoords[knowncellsbox][j]][cellvalue[knowncell]]==1){ // eliminates in box
+          possibles[boxcoords[knowncellsbox][j]][cellvalue[knowncell]]=0;
+          progressmade=1;
+        }
+      }
+    }
+  }
+}
+
+function checkforknown(checkedcell){
+  if(cellvalue[checkedcell]==""){
+    lonepossible=0;
+    possiblecount=0;
+    for(var j=1; j<10; j++){if(possibles[checkedcell][j]==1){lonepossible=j; possiblecount++;}}
+    if(possiblecount==1){deducedcell[checkedcell]=1; fillcell(checkedcell,lonepossible); progressmade=1;}
+  }
+}
+
+function aloneinRCB(mightbealonecell, mightbealonevalue){
+  if(cellvalue[mightbealonecell]==""){
+    alone=1;
+    for(j=1; j<10; j++){
+      if(mightbealonecell%10!=j && possibles[10*Math.floor(mightbealonecell/10)+j][mightbealonevalue]==1){
+        alone=0;
+        j=10;
+      }
+    }
+    if(alone==1){deducedcell[mightbealonecell]=1; fillcell(mightbealonecell,mightbealonevalue); progressmade=1;}
+    else{
+      alone=1;
+      for(j=1; j<10; j++){
+        if(Math.floor(mightbealonecell/10)!=j && possibles[(mightbealonecell%10)+(10*j)][mightbealonevalue]==1){
+          alone=0;
+          j=10;
+        }
+      }
+      if(alone==1){deducedcell[mightbealonecell]=1; fillcell(mightbealonecell,mightbealonevalue); progressmade=1;}
+      else{
+        for(var k=1; k<10; k++){
+          for(var l=1; l<10; l++){
+            if(boxcoords[k][l]==mightbealonecell){knowncellsbox=k; knowncellspositioninbox=l;} // finds box and position in box of might be alone cell - note: code reused from before so used same "known cell" variable names
+          }
+        }
+        alone=1;
+        for(j=1; j<10; j++){
+          if(knowncellspositioninbox!=j && possibles[boxcoords[knowncellsbox][j]][mightbealonevalue]==1){
+            alone=0;
+            j=10;
+          }
+        }
+        if(alone==1){deducedcell[mightbealonecell]=1; fillcell(mightbealonecell,mightbealonevalue); progressmade=1;}
+      }
+    }
+  }
+}
+
+/* function genereategridcode(){
+  skipunusedcells=11;
+  for(i=0; i<81; i++){
+    if(skipunusedcells%10==0){skipunusedcells++;}
+    gridcode[i]=cellvalue[skipunusedcells];
+    if(gridcode[i]==""){gridcode[i]="0";}
+    skipunusedcells++;
+  }
+  window.location.href = "?"+gridcode.join("");
+} */
+
+</script>
